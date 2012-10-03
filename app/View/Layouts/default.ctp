@@ -58,6 +58,5 @@
 			<br/>โทรศัพท์ : 0-2579-0151-8
 		</div>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>

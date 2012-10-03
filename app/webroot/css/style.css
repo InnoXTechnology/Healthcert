@@ -369,3 +369,21 @@ p.error em {
 #flashMessage {
 	margin: 70px 250px -40px;
 }
+
+.engDescription{
+	margin-top:-5px;
+	font-size:10px;
+}
+
+.headTopic{
+	text-align:center; 
+	margin-top:30px; 
+	margin-bottom:40px; 
+	color: #414141; 
+	font-size:40px;
+}
+.engDescriptionHead{
+	margin-top:20px;
+	font-size:20px;
+	color:#808085;
+}

@@ -1,6 +1,6 @@
 <div class="container" style="margin-top:50px;">
 	<div id="wrapper" style="margin-top:-30px; margin-bottom:80px;">
-		<?= $this->Form->create('login'); ?>
+		<?= $this->Form->create('User', array('action' => 'login')); ?>
 		<div id="wrappertop"></div>
 		<div id="wrappermiddle">
 			<h2 style="margin-top:-5px;">ลงชื่อเข้าใช้</h2>
@@ -31,6 +31,3 @@
 		<div id="wrapperbottom"></div>
 		<?= $this->Form->end(); ?>
 	</div>
-</div>
-
-</script>
