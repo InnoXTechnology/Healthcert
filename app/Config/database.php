@@ -57,17 +57,27 @@
  * unix_socket =>
  * For MySQL to connect via socket specify the `unix_socket` parameter instead of `host` and `port`
  */
+
+$VCAP_SERVICES = getenv("VCAP_SERVICES");
+$VCAP_SERVICES_json = json_decode($VCAP_SERVICES, true);
+$VCAP_SERVICES_mysql_config = $VCAP_SERVICES_json["mysql-5.1"][0]["credentials"];
+
+define('AF_DB_HOST', $VCAP_SERVICES_mysql_config['hostname']);
+define('AF_DB_USER', $VCAP_SERVICES_mysql_config['user']);
+define('AF_DB_PASS', $VCAP_SERVICES_mysql_config['password']);
+define('AF_DB_NAME', $VCAP_SERVICES_mysql_config['name']);
+define('AF_DB_DRIVER', 'Database/Mysql');
+
 class DATABASE_CONFIG {
 
 	public $default = array(
-		'datasource' => 'Database/Mysql',
+		'datasource' => AF_DB_DRIVER,
 		'persistent' => false,
-		'host' => 'localhost',
-		'login' => 'root',
-		'password' => 'root',
-		'database' => 'healthcert',
-		'prefix' => '',
-		'unix_socket' => '/Applications/MAMP/tmp/mysql/mysql.sock',
+		'host' => AF_DB_HOST,
+		'login' => AF_DB_USER,
+		'password' => AF_DB_PASS,
+		'database' => AF_DB_NAME,
+		'prefix' => 'HC_',
 		//'encoding' => 'utf8',
 	);
 
@@ -75,9 +85,9 @@ class DATABASE_CONFIG {
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'user',
-		'password' => 'password',
-		'database' => 'test_database_name',
+		'login' => 'root',
+		'password' => 'root',
+		'database' => 'healthcert',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);

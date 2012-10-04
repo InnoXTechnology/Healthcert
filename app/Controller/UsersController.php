@@ -5,7 +5,7 @@
 class UsersController extends AppController
 {
 	public $uses = array('User','Exporter');
-	
+
 	public function beforeFilter()
 	{
 		$this->Auth->allow('export_regis', 'forget_pass');
