@@ -71,13 +71,14 @@ define('AF_DB_DRIVER', 'Database/Mysql');
 class DATABASE_CONFIG {
 
 	public $default = array(
-		'datasource' => AF_DB_DRIVER,
+		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => AF_DB_HOST,
-		'login' => AF_DB_USER,
-		'password' => AF_DB_PASS,
-		'database' => AF_DB_NAME,
-		'prefix' => 'HC_',
+		'host' => 'localhost',
+		'login' => 'root',
+		'password' => 'root',
+		'database' => 'healthcert',
+		'prefix' => '',
+		'unix_socket' => '/Applications/MAMP/tmp/mysql/mysql.sock',
 		//'encoding' => 'utf8',
 	);
 

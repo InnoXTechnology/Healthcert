@@ -1,5 +1,4 @@
 <?php
-
 $arr_province = array(
 	"กระบี่" => "กระบี่",
 	"กรุงเทพมหานคร" => "กรุงเทพมหานคร",
@@ -78,46 +77,30 @@ $arr_province = array(
 	"อุทัยธานี" => "อุทัยธานี",
 	"อุบลราชธานี" => "อุบลราชธานี",);
 ?>
-<!-- new -->
-
 <div class="container" style="margin-top:95px;">
 		<div class="containerMain">
 		<?= $this->Form->create('User'); ?>
-			<div class="headTopic">ลงทะเบียนผู้ส่งออก<br/><div class="engDescriptionHead">Exporter Registration</div></div>
+			<div class="headTopic">ลงทะเบียนผู้ประกอบการ<br/><div class="engDescriptionHead">Packer Registration</div></div>
 		
 			<div class="side">
-		<legend1 style="color:#5BAF5B;">ข้อมูลทั่วไป</legend1>
+		<legend1 style="color:#5BAF5B;">1. ข้อมูลทั่วไป</legend1>
 		<table border="0" cellspacing="2" cellpadding="6" width="750px" style="margin-left:30px;">
-		    <tr><td width="100px">ชื่อผู้ส่งออก<br/><div class="engDescription">Name of Exporter</div></td><td colspan="3"><?= $this->Form->input('Exporter.name', array('class' => 'span8', 'div' => false, 'label' => false));?></td></tr>
-		    <tr><td>ที่อยู่ผู้ส่งออก<br/><div class="engDescription">Address of Exporter</div></td><td colspan="3"><?= $this->Form->input('Exporter.address', array('class' => 'span8', 'div' => false, 'label' => false));?></td></tr>
-		    <tr><td>จังหวัด<br/><div class="engDescription">Province</div></td><td width="275px"><?= $this->Form->input('Exporter.province', array('class' => 'span3', 'options' => $arr_province, 'div' => false, 'label' => false, 'empty' => '(โปรดเลือก)'));?></td><td width="100px">รหัสไปรษณีย์<br/><div class="engDescription">Postal Code</div></td><td><?= $this->Form->input('Exporter.postcode', array('class' => 'span3', 'div' => false, 'label' => false));?></td></tr>
-			<tr><td>โทรศัพท์<br/><div class="engDescription">Telephone</div></td><td><?= $this->Form->input('Exporter.phone', array('class' => 'span3', 'div' => false, 'label' => false));?></td><td >โทรสาร<br/><div class="engDescription">Facsimile</div></td><td><?= $this->Form->input('Exporter.fax', array('class' => 'span3', 'div' => false, 'label' => false));?></td></tr>
-			<tr><td>อีเมลล์<br/><div class="engDescription">E-mail</div></td><td colspan="3"><?= $this->Form->input('Exporter.email', array('class' => 'span8', 'div' => false, 'label' => false));?></td></tr>
+			<tr><td width="100px">ชื่อผู้ประกอบการ<br/><div class="engDescription">Name of Packer</div></td><td colspan="3"><?= $this->Form->input('Packer.name', array('class' => 'span8', 'div' => false, 'label' => false));?></td></tr>		    
+		    <tr><td>ที่อยู่ผู้ประกอบการ<br/><div class="engDescription">Address of Packer</div></td><td colspan="3"><?= $this->Form->input('Packer.address', array('class' => 'span8', 'div' => false, 'label' => false));?></td></tr>
+		    <tr><td>จังหวัด<br/><div class="engDescription">Province</div></td><td width="275px"><?= $this->Form->input('Packer.province', array('class' => 'span3', 'options' => $arr_province, 'div' => false, 'label' => false, 'empty' => '(โปรดเลือก)'));?></td><td width="100px">รหัสไปรษณีย์<br/><div class="engDescription">Postal Code</div></td><td><?= $this->Form->input('Packer.postcode', array('class' => 'span3', 'div' => false, 'label' => false));?></td></tr>
+			<tr><td>โทรศัพท์<br/><div class="engDescription">Telephone</div></td><td><?= $this->Form->input('Packer.phone', array('class' => 'span3', 'div' => false, 'label' => false));?></td><td >โทรสาร<br/><div class="engDescription">Facsimile</div></td><td><?= $this->Form->input('Packer.fax', array('class' => 'span3', 'div' => false, 'label' => false));?></tr>
 		</table>
 	</div>
 	<div class="side">
 		
-		<legend1 style="color:#5BAF5B;">สร้างบัญชีผู้ใช้</legend1>
+		<legend1 style="color:#5BAF5B;">2. สร้างบัญชีผู้ใช้</legend1>
 		<table border="0" cellspacing="2" cellpadding="6" width="750px" style="margin-left:30px;">
 		    <tr><td width="100px">ชื่อบัญชีผู้ใช้<br/><div class="engDescription">Username</div></td><td><?= $this->Form->input('username', array('class' => 'span8', 'div' => false, 'autocomplete' => 'off', 'label' => false));?></td></tr>
 		    <tr><td>รหัสผ่าน<br/><div class="engDescription">Password</div></td><td><?= $this->Form->input('password', array('class' => 'span8', 'div' => false, 'autocomplete' => 'off', 'label' => false));?></td></tr>
 			<tr><td>ยืนยันรหัสผ่าน<br/><div class="engDescription">Confirm Password</div></td><td><?= $this->Form->input('repassword', array('class' => 'span8', 'div' => false, 'type' => 'password', 'required' => true, 'label' => false));?></td></tr>
-			<?= $this->Form->input('type', array('value' => 'E', 'div' => false, 'type' => 'hidden'));?>
+
+			<?= $this->Form->input('type', array('value' => 'P', 'div' => false, 'type' => 'hidden'));?>
 		</table>
-	</div>
-		
-		<div class="side">
-		<legend1 style="color:#5BAF5B;">แนบเอกสารหลักฐาน</legend1>
-		<div style="margin-left:30px;">
-			<label>สําเนาบัตรประจําตัวประชาชนหรือหนังสือเดินทาง<br/><div class="engDescription">A copy of the identification card or passport.</div></label>
-			  <input type="file"><br/><br/>
-  			<label>สําเนาหนังสือรับรองการจดทะเบียนนิติบุคคลและผู้มีอํานาจลงชื่อแทนนิติบุคคผู้ขออนุญาตนี้ออกใหม่ไม่เกินหกเดือน <br/>(กรณีนิติบุคคลเป็นผู้ขออนุญาต)<br/><div class="engDescription">A copy of the certificate of corporate registration and signatures authorized, issued within six months. (In case of the applicant is a corporation)</div></label>
-  			  <input type="file"><br/><br/>
-  			<label>สําเนาบัตรประจําตัวประชาชนของกรรมการผู้มีอํานาจลงชื่อแทนนิติบุคคลหรือหนังสือเดินทาง<br/><div class="engDescription">A copy of the identification card of person authorized sign for the corporate entity or passport.</div></label>
-  			  <input type="file"><br/><br/>
-  			<label>หนังสือมอบอํานาจในกรณีมอบอํานาจให้ผู้อื่นดําเนินการแทน<br/><div class="engDescription">Application letter of authorized to submit the application for permit.</div></label>
-  			  <input type="file"><br/><br/>
-	  	</div>
 	</div>
 		<?= $this->Form->submit('ลงทะเบียน', array('class' => 'btn btn-success', 'style' => 'float:right; margin-left:10px;')); ?>
 		<?= $this->Form->button('ยกเลิก', array('onclick' => "location.href='".$this->Html->url(array('action' => 'login'))."'" ,'class' => 'btn', 'style' => 'float:right; margin-left:10px;')); ?>

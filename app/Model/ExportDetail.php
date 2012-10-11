@@ -1,25 +1,18 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Packer Model
+ * ExportDetail Model
  *
- * @property User $User
+ * @property Attachment $Attachment
  */
-class Packer extends AppModel {
+class ExportDetail extends AppModel {
 
 /**
  * Use table
  *
  * @var mixed False or table name
  */
-	public $useTable = 'Packers';
-
-/**
- * Display field
- *
- * @var string
- */
-	public $displayField = 'name';
+	public $useTable = 'ExportDetail';
 
 /**
  * Validation rules
@@ -27,7 +20,7 @@ class Packer extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'name' => array(
+		'consignee' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -37,7 +30,7 @@ class Packer extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'address' => array(
+		'consignee_address' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -47,7 +40,17 @@ class Packer extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'province' => array(
+		'shipment_date' => array(
+			'date' => array(
+				'rule' => array('date'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'lot_no' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -57,7 +60,7 @@ class Packer extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'postcode' => array(
+		'regis_no' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -67,7 +70,7 @@ class Packer extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'phone' => array(
+		'weight' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -87,9 +90,9 @@ class Packer extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'User' => array(
-			'className' => 'User',
-			'foreignKey' => 'user_id',
+		'Attachment' => array(
+			'className' => 'Attachment',
+			'foreignKey' => 'attachment_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

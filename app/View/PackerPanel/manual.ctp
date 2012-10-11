@@ -1,5 +1,3 @@
-<div style="clear:both;"></div>
-
 <div class="navbar">
 		<div class="navbar-inner"  >
 			<div class="container" style="width:940px;">
@@ -14,8 +12,8 @@
 								<li class="dropdown">
 									<a href="#" class="active dropdown-toggle" data-toggle="dropdown">ยื่นคำขอ <b class="caret"></b></a>
 									<ul class="dropdown-menu">
-										<li><?= $this->Html->link('ใบรับรองสุขอนามัย (พ.ก.11)', array('action' => 'requestApp')); ?></li>
-										<li><a href="#">แก้ไขใบแนบใบรับรองสุขอนามัย (พ.ก.12)</a></li>
+										<li><?= $this->Html->link('หนังสือรับรองโรงงาน (สมพ.2)', array('action' => 'requestApp')); ?></li>
+										<li><a href="#">ต่ออายุหนังสือรับรองโรงงาน (สมพ.3)</a></li>
 									</ul>
 								</li>
 								
@@ -41,5 +39,6 @@
 			</div>
 		</div>
 </div>
+
 	<script src="../js/jquery-1.8.1.js"></script>
 	<script src="../js/bootstrap.js"></script>

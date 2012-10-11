@@ -1,3 +1,4 @@
+<div style="clear:both;"></div>
 <div class="navbar">
 		<div class="navbar-inner"  >
 			<div class="container" style="width:940px;">
@@ -12,8 +13,8 @@
 								<li class="dropdown">
 									<a href="#" class="active dropdown-toggle" data-toggle="dropdown">ยื่นคำขอ <b class="caret"></b></a>
 									<ul class="dropdown-menu">
-										<li><?= $this->Html->link('ใบรับรองสุขอนามัย (พ.ก.11)', array('action' => 'requestApp')); ?></li>
-										<li><a href="#">แก้ไขใบแนบใบรับรองสุขอนามัย (พ.ก.12)</a></li>
+										<li><?= $this->Html->link('หนังสือรับรองโรงงาน (สมพ.2)', array('action' => 'requestApp')); ?></li>
+										<li><a href="#">ต่ออายุหนังสือรับรองโรงงาน (สมพ.3)</a></li>
 									</ul>
 								</li>
 								
@@ -39,37 +40,39 @@
 			</div>
 		</div>
 </div>
-	
-<div class="container" style="margin-top:50px;">
+
+	<div class="container" style="margin-top:50px;">
 		<div class="containerMain" style="min-height:500px;">
 		
 			<div class="side" style="margin-top:30px">
-		<legend1 style="color:#5BAF5B;">รายการคำขอใบรับรองสุขอนามัย (พ.ก.11) <?= $this->Form->button('ยื่นคำขอ', array('onclick' => "location.href='".$this->Html->url(array('action' => 'requestApp'))."'" ,'class' => 'btn btn-success', 'style' => 'float:right;')); ?>
+		<legend1 style="color:#5BAF5B;">รายการคำร้องขอหนังสือรับรองโรงงาน (สมพ.2) <button class="btn btn-success" style="float:right;">ยื่นคำขอ</button></legend1>
+		
+		
 			<table id="bgTable" border="1" cellspacing="1" cellpadding="6" width="700px" style="margin:auto;">
 			 	<tr align="center" style="background:rgba(110, 158, 48, 0.5); color:#3F3F3F;"><td >คำขอที่</td><td>วันที่ขอ</td><td>การกระทำ</td></tr>
-			<?php foreach ($requests as $request): ?>
-				<tr align="center" style="color:#3F3F3F"><td><?= $request['ExporterRequest']['receipt_no']; ?></td>
-					<?php $date = date_create($request['ExporterRequest']['receipt_date']); ?>
-					<td><?= date_format($date, 'd F Y เวลา H:i น.'); ?></td>
-					<td width="130px"><button class="btn" style="width:50px;">ดู</button>&nbsp;<button class="btn btn-danger" style="width:50px;">ลบ</button></td>
-				</tr>
-			<?php endforeach; ?>
+				<tr align="center"><td>2555 / 123</td><td>19 พฤศจิกายน 2555 เวลา 19.30 น.</td><td width="130px"><button class="btn" style="width:50px;">ดู</button>&nbsp;<button class="btn btn-danger" style="width:50px;">ลบ</button></td></tr>
+				<tr align="center"><td>2555 / 123</td><td>19 พฤศจิกายน 2555 เวลา 19.30 น.</td><td><button class="btn" style="width:50px;">ดู</button>&nbsp;<button class="btn btn-danger" style="width:50px;">ลบ</button></td></tr>
+				<tr align="center"><td>2555 / 123</td><td>19 พฤศจิกายน 2555 เวลา 19.30 น.</td><td><button class="btn" style="width:50px;">ดู</button>&nbsp;<button class="btn btn-danger" style="width:50px;">ลบ</button></td></tr>
+				
 			</table>
 			<br/>
 	</div>
 		
 		<div class="side" style="margin-top:30px;">
-	<legend1 style="color:#5BAF5B;">รายการคำแก้ไขใบแนบใบรับรองสุขอนามัย (พ.ก.12) <button class="btn btn-success" style="float:right;">ยื่นคำขอ</button></legend1>
+	<legend1 style="color:#5BAF5B;">รายการคำร้องขอต่ออายุหนังสือรับรองโรงงาน (สมพ.3) <button class="btn btn-success" style="float:right;">ยื่นคำขอ</button></legend1>
 		
 	
 		<table id="bgTable" border="1" cellspacing="1" cellpadding="6" width="700px" style="margin:auto;">
 		 	<tr align="center" style="background:rgba(110, 158, 48, 0.5); color:#3F3F3F;"><td >คำขอที่</td><td>วันที่ขอ</td><td>การกระทำ</td></tr>
 			<tr align="center"><td>2555 / 123</td><td>19 พฤศจิกายน 2555 เวลา 19.30 น.</td><td width="130px"><button class="btn" style="width:50px;">ดู</button>&nbsp;<button class="btn btn-danger" style="width:50px;">ลบ</button></td></tr>
+			<tr align="center"><td>2555 / 123</td><td>19 พฤศจิกายน 2555 เวลา 19.30 น.</td><td><button class="btn" style="width:50px;">ดู</button>&nbsp;<button class="btn btn-danger" style="width:50px;">ลบ</button></td></tr>
+			<tr align="center"><td>2555 / 123</td><td>19 พฤศจิกายน 2555 เวลา 19.30 น.</td><td><button class="btn" style="width:50px;">ดู</button>&nbsp;<button class="btn btn-danger" style="width:50px;">ลบ</button></td></tr>
 				
 		</table>
 </div>
 		
 	</div>
 </div>
+
 	<script src="../js/jquery-1.8.1.js"></script>
 	<script src="../js/bootstrap.js"></script>

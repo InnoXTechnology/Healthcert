@@ -1,5 +1,90 @@
-<div style="clear:both;"></div>
-	<div class="navbar">
+<?php 
+	$transports = array(
+		'บก' => 'บก',
+		'เรือ' => 'เรือ',
+		'อากาศ' => 'อากาศ',
+	);
+	$arr_province = array(
+		"กระบี่" => "กระบี่",
+		"กรุงเทพมหานคร" => "กรุงเทพมหานคร",
+		"กาญจนบุรี" => "กาญจนบุรี",
+		"กาฬสินธุ์" => "กาฬสินธุ์",
+		"กำแพงเพชร" => "กำแพงเพชร",
+		"ขอนแก่น" => "ขอนแก่น",
+		"จันทบุรี" => "จันทบุรี",
+		"ฉะเชิงเทรา"  => "ฉะเชิงเทรา" ,
+		"ชลบุรี" => "ชลบุรี",
+		"ชัยนาท" => "ชัยนาท",
+		"ชัยภูมิ" => "ชัยภูมิ",
+		"ชุมพร" => "ชุมพร",
+		"เชียงราย" => "เชียงราย",
+		"เชียงใหม่" => "เชียงใหม่",
+		"ตรัง" => "ตรัง",
+		"ตราด" => "ตราด",
+		"ตาก" => "ตาก",
+		"นครนายก" => "นครนายก",
+		"นครปฐม" => "นครปฐม",
+		"นครพนม" => "นครพนม",
+		"นครราชสีมา"  => "นครราชสีมา" ,
+		"นครศรีธรรมราช" => "นครศรีธรรมราช",
+		"นครสวรรค์" => "นครสวรรค์",
+		"นนทบุรี" => "นนทบุรี",
+		"นราธิวาส" => "นราธิวาส",
+		"น่าน" => "น่าน",
+		"บุรีรัมย์" => "บุรีรัมย์",
+		"ปทุมธานี" => "ปทุมธานี",
+		"ประจวบคีรีขันธ์" => "ประจวบคีรีขันธ์",
+		"ปราจีนบุรี" => "ปราจีนบุรี",
+		"ปัตตานี"  => "ปัตตานี" ,
+		"พะเยา" => "พะเยา",
+		"พังงา" => "พังงา",
+		"พัทลุง" => "พัทลุง",
+		"พิจิตร" => "พิจิตร",
+		"พิษณุโลก" => "พิษณุโลก",
+		"เพชรบุรี" => "เพชรบุรี",
+		"เพชรบูรณ์" => "เพชรบูรณ์",
+		"แพร่" => "แพร่",
+		"ภูเก็ต" => "ภูเก็ต",
+		"มหาสารคาม" => "มหาสารคาม",
+		"มุกดาหาร" => "มุกดาหาร",
+		"แม่ฮ่องสอน"  => "แม่ฮ่องสอน" ,
+		"ยโสธร" => "ยโสธร",
+		"ยะลา" => "ยะลา",
+		"ร้อยเอ็ด" => "ร้อยเอ็ด",
+		"ระนอง" => "ระนอง",
+		"ระยอง" => "ระยอง",
+		"ราชบุรี" => "ราชบุรี",
+		"ลพบุรี" => "ลพบุรี",
+		"ลำปาง" => "ลำปาง",
+		"ลำพูน" => "ลำพูน",
+		"เลย" => "เลย",
+		"ศรีสะเกษ" => "ศรีสะเกษ",
+		"สกลนคร" => "สกลนคร",
+		"สงขลา"  => "สงขลา" ,
+		"สตูล" => "สตูล",
+		"สมุทรปราการ" => "สมุทรปราการ",
+		"สมุทรสงคราม" => "สมุทรสงคราม",
+		"สมุทรสาคร" => "สมุทรสาคร",
+		"สระแก้ว" => "สระแก้ว",
+		"สระบุรี" => "สระบุรี",
+		"สิงห์บุรี" => "สิงห์บุรี",
+		"สุโขทัย" => "สุโขทัย",
+		"สุพรรณบุรี" => "สุพรรณบุรี",
+		"สุราษฎร์ธานี"  => "สุราษฎร์ธานี" ,
+		"สุรินทร์" => "สุรินทร์",
+		"หนองคาย" => "หนองคาย",
+		"หนองบัวลำภู" => "หนองบัวลำภู",
+		"อยุธยา" => "อยุธยา",
+		"อ่างทอง" => "อ่างทอง",
+		"อำนาจเจริญ" => "อำนาจเจริญ",
+		"อุดรธานี" => "อุดรธานี",
+		"อุตรดิตถ์" => "อุตรดิตถ์",
+		"อุทัยธานี" => "อุทัยธานี",
+		"อุบลราชธานี" => "อุบลราชธานี",);
+?>
+
+
+<div class="navbar">
 		<div class="navbar-inner"  >
 			<div class="container" style="width:940px;">
 				<div class="container-fluid"  >
@@ -10,9 +95,16 @@
 							<ul class="nav">
 								<li><?= $this->Html->link('หน้าหลัก', array('action' => 'index')); ?></li>
 								<li class="divider-vertical"></li>
-								<li class="active"><?= $this->Html->link('ยื่นคำขอ', array('action' => 'requestApp')); ?></li>
+								<li class="dropdown active">
+									<a href="#" class="active dropdown-toggle" data-toggle="dropdown">ยื่นคำขอ <b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li><?= $this->Html->link('ใบรับรองสุขอนามัย (พ.ก.11)', array('action' => 'requestApp')); ?></li>
+										<li><a href="#">แก้ไขใบแนบใบรับรองสุขอนามัย (พ.ก.12)</a></li>
+									</ul>
+								</li>
+								
 								<li class="divider-vertical"></li>
-								<li><?= $this->Html->link('วิธีการใช้งาน', array('action' => 'manual')); ?></li>
+								<li><?= $this->Html->link('คู่มือการใช้งาน', array('action' => 'manual')); ?></li>
 								<li class="divider-vertical"></li>
 							</ul>
 							<ul class="nav pull-right">
@@ -32,108 +124,138 @@
 				</div>
 			</div>
 		</div>
+</div>
+
+	<div class="container" style="margin-top:50px;">
+		<div class="containerMain">
+		<?= $this->Form->create('ExporterRequest'); ?>
+			<div class="headTopic">คำขอใบรับรองสุขอนามัย<br/><div class="engDescriptionHead">Application for Health Certificate</div></div>
+		
+			<div class="side">
+		<legend1 style="color:#5BAF5B;">ผู้ประกอบการโรงคัดบรรจุ</legend1>
+		<table border="0" cellspacing="2" cellpadding="6" width="750px" style="margin-left:30px;">
+			<?= $this->Form->input('Packer.id', array('value' => '', 'div' => false, 'type' => 'hidden', 'id' => 'packerId'));?>
+			<?= $this->Form->input('User.id', array('value' => '', 'div' => false, 'type' => 'hidden', 'id' => 'userId'));?>
+		    <tr><td width="170px">ชื่อผู้ประกอบการโรงคัดบรรจุ<br/><div class="engDescription">Name of Packer</div></td><td colspan="3"><?= $this->Form->input('Packer.name', array('class' => 'span7', 'id' => 'packerName' ,'div' => false, 'label' => false, 'empty' => '(โปรดเลือก)', 'options' => $name_list));?></td></tr>
+		    <tr><td>ที่อยู่ผู้ประกอบการโรงคัดบรรจุ<br/><div class="engDescription">Address of Packer</div></td><td colspan="3"><?= $this->Form->input('Packer.address', array('class' => 'span7', 'id' => 'packerAddress' ,'div' => false, 'label' => false));?></td></tr>
+		    <tr><td>จังหวัด<br/><div class="engDescription">Province</div></td><td width="200px"><?= $this->Form->input('Packer.province', array('class' => 'span3', 'id' => 'packerProvince' , 'options' => $arr_province, 'div' => false, 'label' => false, 'empty' => '(โปรดเลือก)'));?></td><td width="76px">รหัสไปรษณีย์<br/><div class="engDescription">Postal Code</div></td><td><?= $this->Form->input('Packer.postcode', array('class' => 'span3', 'id' => 'packerPostcode' ,'div' => false, 'label' => false));?></td></tr>
+			<tr><td>โทรศัพท์<br/><div class="engDescription">Telephone</div></td><td><?= $this->Form->input('Packer.phone', array('class' => 'span3', 'id' => 'packerPhone' ,'div' => false, 'label' => false));?></td><td >โทรสาร<br/><div class="engDescription">Facsimile</div></td><td><?= $this->Form->input('Packer.phone', array('class' => 'span3','id' => 'packerFax' , 'div' => false, 'label' => false));?></td></tr>
+		</table>
+	</div>
+	<div class="side">
+		
+		<legend1 style="color:#5BAF5B;">โรงคัดบรรจุ</legend1>
+		<table border="0" cellspacing="2" cellpadding="6" width="750px" style="margin-left:30px;">
+		    <tr><td width="170px">รหัสโรงคัดบรรจุ<br/><div class="engDescription">Packing House Code</div></td><td colspan="3"><?= $this->Form->input('PackingHouse.code', array('class' => 'span7', 'div' => false, 'label' => false));?></td></tr>
+			<tr><td>ชื่อโรงคัดบรรจุ<br/><div class="engDescription">Name of Packing House</div></td><td colspan="3"><?= $this->Form->input('PackingHouse.name', array('class' => 'span7', 'div' => false, 'label' => false));?></td></tr>
+		    <tr><td>ที่อยู่โรงคัดบรรจุ<br/><div class="engDescription">Address of Packing House</div></td><td colspan="3"><?= $this->Form->input('PackingHouse.address', array('class' => 'span7', 'div' => false, 'label' => false));?></td></tr>
+		    <tr><td>จังหวัด<br/><div class="engDescription">Province</div></td><td width="200px"><?= $this->Form->input('PackingHouse.province', array('class' => 'span3', 'options' => $arr_province, 'div' => false, 'label' => false, 'empty' => '(โปรดเลือก)'));?></td><td width="78px">รหัสไปรษณีย์<br/><div class="engDescription">Postal Code</div></td><td><?= $this->Form->input('PackingHouse.postcode', array('class' => 'span3', 'div' => false, 'label' => false));?></td></tr>
+			<tr><td>โทรศัพท์<br/><div class="engDescription">Telephone</div></td><td><?= $this->Form->input('PackingHouse.phone', array('class' => 'span3', 'div' => false, 'label' => false));?></td><td >โทรสาร<br/><div class="engDescription">Facsimile</div></td><td><?= $this->Form->input('PackingHouse.fax', array('class' => 'span3', 'div' => false, 'label' => false));?></td></tr>
+		</table>
+	</div>
+	<div class="side">
+		
+		<legend1 style="color:#5BAF5B;">พืชที่ยื่นขอใบรับรองสุขอนามัย</legend1>
+		<table border="0" cellspacing="2" cellpadding="6" width="750px" style="margin-left:30px;">
+		    <tr><td width="200px">ชื่อพืชหรือผลิตผลพืช<br/><div class="engDescription">Name of plants or plant product</div></td><td colspan="5"><?= $this->Form->input('ExporterRequest.product_name', array('class' => 'span7', 'div' => false, 'label' => false));?></td></tr>
+			<tr><td>น้ำหนัก<br/><div class="engDescription">Weight</div></td><td width="150px"><?= $this->Form->input('ExporterRequest.product_weight', array('class' => 'span2', 'div' => false, 'label' => false));?></td><td width="100px">กิโลกรัม<br/><div class="engDescription">Kilogram</div></td><td width="30px">มูลค่า<br/><div class="engDescription">Value</div></td><td><?= $this->Form->input('ExporterRequest.product_value', array('class' => 'span2', 'div' => false, 'label' => false));?></td><td width="60px">บาท<br/><div class="engDescription">Baht</div></td></tr>
+			<tr><td>รหัสแปลง GAP/Organic<br/><div class="engDescription">Code of GAP/Organic</div></td><td colspan="5"><?= $this->Form->input('ExporterRequest.gap_code', array('class' => 'span7', 'div' => false, 'label' => false));?></td></tr>
+		</table>
+		<table border="0" cellspacing="2" cellpadding="6" width="750px" style="margin-left:30px;">
+		    <tr><td width="330px">ชื่อเชื้อจุลินทรีย์หรือสิ่งอื่นใดที่เป็นอันตรายต่อมนุษย์<br/><div class="engDescription">Name of microorganisms or other harmful substances</div></td><td width="10px"><?= $this->Form->input('ExporterRequest.is_microorganisms', array('class' => false, 'div' => false, 'label' => false));?></td><td>จุลินทรีย์<br/><div class="engDescription">Microorganisms</div></td><td width="10px"><?= $this->Form->input('ExporterRequest.is_harmful', array('class' => false, 'div' => false, 'label' => false));?></td><td>สารตกค้าง<br/><div class="engDescription">Harmful Substances</div></td></tr>
+		</table>
+	</div>
+	
+<div class="side">
+		
+		<legend1 style="color:#5BAF5B;">พาหนะ</legend1>
+		
+		<table border="0" cellspacing="2" cellpadding="6" width="750px" style="margin-left:30px;">
+		    <tr><td width="200px">ส่งโดยพาหนะ<br/><div class="engDescription">Means of Conveyance</div></td><td colspan="5">
+		    	<?= $this->Form->input('ExporterRequest.conveyance', array('class' => 'span3', 'options' => $transports, 'div' => false, 'label' => false, 'empty' => '(โปรดเลือก)'));?>
+		    </td></tr>
+			
+		</table>
+		
+		
 	</div>
 
-	<div class="container" style="margin-top:20px;">
+	
+	<div class="side">
 		
-		<div class="container-fluid"style="margin-top:30px;">
-			<div class="row-fluid">
-				<div class="span3">
-					<ul class="nav nav-tabs nav-stacked">
-						<li class="active"><a href="#">Home</a></li>
-						<li><a href="#">Profile</a></li>
-						<li><a href="#">Messages</a></li>
-					</ul>
-				</div>
-				<div class="span9">
-					<div class="containerMain">
-						
-						<div style="text-align:center; margin-top:30px; margin-bottom:40px; color:#808085; font-size:40px;">กรอกคำขอ</div>
-							
+		<legend1 style="color:#5BAF5B;">ผู้รับ</legend1>
+		<p style="margin-left:35px;">รายละเอียดการส่งออก</p>
 		
-						<div class="side">
-							<legend1 style="color:#5BAF5B;">ผู้ประกอบการโรงคัดบรรจุ</legend1>
-							<table border="0" cellspacing="2" cellpadding="5" width="600px" style="margin-left:40px;">
-								<tr><td width="100px">ชื่อ</td><td><input class="span9" type="text"></td></tr>
-								<tr><td>ที่อยู่</td><td><textarea class="span9" rows="4"></textarea></td></tr>
-								<tr><td>จังหวัด</td><td><input class="span9" type="text"></td></tr>
-								<tr><td>รหัสไปรษณีย์</td><td><input class="span9" type="text"></td></tr>
-								<tr><td>โทรศัพท์</td><td><input class="span9" type="text"></td></tr>
-								<tr><td>โทรสาร</td><td><input class="span9" type="text"></td></tr>
-							</table>
-						</div>
-						<div class="side">
-							<legend1 style="color:#5BAF5B;">โรงคัดบรรจุ</legend1>
-							<table border="0" cellspacing="2" cellpadding="5" width="600px" style="margin-left:40px;">
-								<tr><td width="100px">รหัส</td><td><input class="span9" type="text"></td></tr>
-								<tr><td width="100px">ชื่อ</td><td><input class="span9" type="text"></td></tr>
-								<tr><td>ที่อยู่</td><td><textarea class="span9" rows="4"></textarea></td></tr>
-								<tr><td>จังหวัด</td><td><input class="span9" type="text"></td></tr>
-								<tr><td>รหัสไปรษณีย์</td><td><input class="span9" type="text"></td></tr>
-								<tr><td>โทรศัพท์</td><td><input class="span9" type="text"></td></tr>
-								<tr><td>โทรสาร</td><td><input class="span9" type="text"></td></tr>
-							</table>
-						</div>
 		
-						<div class="side">
-							<legend1 style="color:#5BAF5B;">ผู้รับสินค้า</legend1>
-							<table border="0" cellspacing="2" cellpadding="5" width="600px" style="margin-left:40px;">
-								<tr><td width="100px">ชื่อ</td><td><input class="span9" type="text"></td></tr>
-								<tr><td>ที่อยู่</td><td><textarea class="span9" rows="9"></textarea></td></tr>
-								<tr><td>ส่งโดยพาหนะ</td><td><input class="span9" type="text"></td></tr>
-								<tr><td>วันที่ส่งออก</td><td><input class="span9" type="text"></td></tr>
-							</table>
-						</div>
-						<div class="side">
-							<legend1 style="color:#5BAF5B;">ขอยื่นคำขอใบรับรองสุขอนามัยสำหรับพืชดังต่อไปนี้</legend1>
-							<div style="margin-left:40px;">
-								ชื่อเชื้อจุลินทรีย์หรือสิ่งอื่นใดที่เป็นอันตรายต่อมนุษย์<br/>
-								<input style="margin-top:10px;"class="span11" type="text">
-							</div>
-							<br/>
-							<div align="center">
-								<table width="100%" border="1" cellspacing="0" cellpadding="8">
-									<tr align="center">
-										<td >ตัวอย่างที่</td>
-										<td>ชื่อพืช</td>
-										<td>น้ำหนัก<br/>(กก.)</td>
-										<td>มูลค่า<br/>(บาท)</td>
-										<td>รหัสแปลง</td>
-									</tr>
-									<tr align="center" >
-										<td><input style="width:50px;" type="text"></td>
-										<td><input style="width:150px;" type="text"></td>
-										<td><input style="width:50px;"type="text"></td>
-										<td><input style="width:50px;"type="text"></td>
-										<td><input style="width:50px;"type="text"></td>
-									</tr>
-									<tr align="center" >
-										<td><input style="width:50px;" type="text"></td>
-										<td><input style="width:150px;" type="text"></td>
-										<td><input style="width:50px;"type="text"></td>
-										<td><input style="width:50px;"type="text"></td>
-										<td><input style="width:50px;"type="text"></td>
-									</tr>
-									<tr align="center" >
-										<td><input style="width:50px;" type="text"></td>
-										<td><input style="width:150px;" type="text"></td>
-										<td><input style="width:50px;"type="text"></td>
-										<td><input style="width:50px;"type="text"></td>
-										<td><input style="width:50px;"type="text"></td>
-									</tr>
-							          
-								</table>
-								<div style="margin-top:10px; text-align:right; margin-bottom:10px;"><a href="#">เพิ่มบรรทัด</a></div>
-							</div>
-						</div>
-						<button type="submit" class="btn btn-success" style="float:right; margin-left:10px;">ส่งใบคำขอ</button>
-						<button type="clear" class="btn" style="float:right; margin-left:10px;">ยกเลิก</button>
-					</div>
-				</div>
-		      
-			</div>
+		<table border="0" cellspacing="2" cellpadding="6" width="750px" style="margin-left:30px;">
+			<tr><td>ผู้รับสินค้า<br/><div class="engDescription">Consignee</div></td><td colspan="5"><?= $this->Form->input('ExportDetail.consignee', array('class' => 'span7', 'div' => false, 'label' => false));?></td></tr>
+			<tr><td>ที่อยู่ผู้รับสินค้า<br/><div class="engDescription">Address of Consignee</div></td><td colspan="5"><?= $this->Form->input('ExportDetail.consignee_address', array('class' => 'span7', 'div' => false, 'label' => false));?></td></tr>
+			<tr><td>วันที่ส่ง<br/><div class="engDescription">Ship Date</div></td><td width="200px" colspan="2"><?= $this->Form->input('ExportDetail.shipment_date', array('class' => 'span1', 'div' => false, 'label' => false, 'dateFormat' => 'DMY'));?></td><td width="45px">ส่วนที่<br/><div class="engDescription">Lot No.</div></td><td colspan="2"><?= $this->Form->input('ExportDetail.lot_no', array('class' => 'span3', 'div' => false, 'label' => false));?></td></tr>
+			<tr><td>หมายเลขลงทะเบียน<br/><div class="engDescription">Registration No.</div></td><td colspan="2" width="150px"><?= $this->Form->input('ExportDetail.regis_no', array('class' => 'span3', 'div' => false, 'label' => false));?></td><td width="30px">น้ำหนัก<br/><div class="engDescription">Weight</div></td><td><?= $this->Form->input('ExportDetail.weight', array('class' => 'span2', 'div' => false, 'label' => false));?></td><td width="60px">กิโลกรัม<br/><div class="engDescription">Kilogram</div></td></tr>
+		</table>
+		
+		<div style="height:20px; padding:10px;">
+		<?= $this->Form->submit('บันทึก', array('class' => 'btn btn-success', 'style' => 'float:right; margin-left:10px;')); ?>
 		</div>
 	</div>
+	
+	
+	
+
+	</div>
+</div>
+	<?= $this->Form->end(); ?>
+</div>
 
 	<script src="../js/jquery-1.8.1.js"></script>
 	<script src="../js/bootstrap.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			if($("#packerName").val() != '') {
+				$.post("getPacker/" + $("#packerName").val() + ".json", {}, function(data) { 
+					$('#packerAddress').val(data['Packer']['address']);
+					$('#packerProvince').val(data['Packer']['province']);
+					$('#packerPostcode').val(data['Packer']['postcode']);
+					$('#packerPhone').val(data['Packer']['phone']);
+					$('#packerFax').val(data['Packer']['fax']);
+					$('#packerId').val(data['Packer']['id']);
+					$('#userId').val(data['User']['id']);
+				});
+			} else {
+				$('#packerAddress').val('');
+				$('#packerProvince').val('');
+				$('#packerPostcode').val('');
+				$('#packerPhone').val('');
+				$('#packerFax').val('');
+				$('#packerId').val('');
+			}
+			$("#packerName").change(function(){
+				if($("#packerName").val() != '') {
+					$.post("getPacker/" + $("#packerName").val() + ".json", {}, function(data) { 
+						$('#packerAddress').val(data['Packer']['address']);
+						$('#packerProvince').val(data['Packer']['province']);
+						$('#packerPostcode').val(data['Packer']['postcode']);
+						$('#packerPhone').val(data['Packer']['phone']);
+						$('#packerFax').val(data['Packer']['fax']);
+						$('#packerId').val(data['Packer']['id']);
+						$('#userId').val(data['User']['id']);
+					});
+				} else {
+					$('#packerAddress').val('');
+					$('#packerProvince').val('');
+					$('#packerPostcode').val('');
+					$('#packerPhone').val('');
+					$('#packerFax').val('');
+					$('#packerId').val('');
+				}
+			});
+			
+			$('#packerAddress').attr('disabled','disabled');
+			$('#packerProvince').attr('disabled','disabled');
+			$('#packerPostcode').attr('disabled','disabled');
+			$('#packerPhone').attr('disabled','disabled');
+			$('#packerFax').attr('disabled','disabled');
+
+		});
+	</script>

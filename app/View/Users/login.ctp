@@ -26,7 +26,12 @@
 					<?= $this->Form->submit('../images/submit.png',array('type'=>'image', 'div' => false, 'onMouseOver' => 'javascript:this.src="../images/submit_hover.png"', 'onMouseOut' => 'javascript:this.src="../images/submit.png"'));  ?>
 				</div>
 				<div id="links_left"><?= $this->Html->link('ลืมรหัสผ่าน', array( 'action' => 'forget_pass')); ?></div>
-				<div id="links_right"><?= $this->Html->link('ลงทะเบียน', array( 'action' => 'export_regis')); ?></div>
+				<div id="links_right">
+					ลงทะเบียน
+					<?= $this->Html->link('
+					(ผู้ส่งออก,', array( 'action' => 'export_regis')); ?>
+					<?= $this->Html->link(' ผู้ประกอบการ)', array( 'action' => 'packer_regis')); ?>
+				</div>
 		</div>
 		<div id="wrapperbottom"></div>
 		<?= $this->Form->end(); ?>
