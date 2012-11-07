@@ -77,7 +77,7 @@ class DATABASE_CONFIG {
 		'login' => 'root',
 		'password' => 'root',
 		'database' => 'healthcert',
-		'prefix' => '',
+		'prefix' => 'HC_',
 		'unix_socket' => '/Applications/MAMP/tmp/mysql/mysql.sock',
 		//'encoding' => 'utf8',
 	);
