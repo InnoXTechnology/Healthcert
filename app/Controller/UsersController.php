@@ -67,7 +67,6 @@ class UsersController extends AppController
 	public function export_regis() {
 		if ($this->request->is('post'))
 		{
-
 			if (empty($this->request->data['User']['password']) || $this->request->data['User']['password'] != $this->request->data['User']['repassword'])
 			{
 				$this->request->data['User']['password'] = '';
@@ -76,8 +75,16 @@ class UsersController extends AppController
 				return;
 			}
 
-			$this->request->data['User']['password'] = AuthComponent::password($this->request->data['User']['password']);
+			
+			$this->Exporter->set($this->request->data);
 
+			if (!$this->Exporter->validates()) {
+				$this->Session->setFlash('Please fill all fleid.');
+				return;
+			}
+
+			$this->request->data['User']['password'] = AuthComponent::password($this->request->data['User']['password']);
+			
 			if ($this->User->save($this->request->data))
 			{
 				$data = $this->request->data;
@@ -95,6 +102,7 @@ class UsersController extends AppController
 				$this->request->data['User']['repassword'] = '';
 				$this->Session->setFlash('The user could not be saved. Please try again.');
 			}
+			
 		}
 	}
 

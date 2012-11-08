@@ -359,7 +359,8 @@ class UploadBehavior extends ModelBehavior {
  * @access public
  */
 	public function isUnderPhpSizeLimit(&$model, $check) {
-		$field = array_pop(array_keys($check));
+		$isCheck = array_keys($check);
+		$field = array_pop($isCheck);
 
 		if (!empty($check[$field]['remove'])) {
 			return true;
@@ -378,7 +379,8 @@ class UploadBehavior extends ModelBehavior {
  * @access public
  */
 	public function isUnderFormSizeLimit(&$model, $check) {
-		$field = array_pop(array_keys($check));
+		$isCheck = array_keys($check);
+		$field = array_pop($isCheck);
 
 		if (!empty($check[$field]['remove'])) {
 			return true;
@@ -396,7 +398,8 @@ class UploadBehavior extends ModelBehavior {
  * @access public
  */
 	public function isCompletedUpload(&$model, $check) {
-		$field = array_pop(array_keys($check));
+		$isCheck = array_keys($check);
+		$field = array_pop($isCheck);
 
 		if (!empty($check[$field]['remove'])) {
 			return true;
@@ -414,7 +417,8 @@ class UploadBehavior extends ModelBehavior {
  * @access public
  */
 	public function isFileUpload(&$model, $check) {
-		$field = array_pop(array_keys($check));
+		$isCheck = array_keys($check);
+		$field = array_pop($isCheck);
 
 		if (!empty($check[$field]['remove'])) {
 			return true;
@@ -432,7 +436,8 @@ class UploadBehavior extends ModelBehavior {
  * @access public
  */
 	public function tempDirExists(&$model, $check, $requireUpload = true) {
-		$field = array_pop(array_keys($check));
+		$isCheck = array_keys($check);
+		$field = array_pop($isCheck);
 
 		if (!empty($check[$field]['remove'])) {
 			return true;
@@ -455,7 +460,8 @@ class UploadBehavior extends ModelBehavior {
  * @access public
  */
 	public function isSuccessfulWrite(&$model, $check, $requireUpload = true) {
-		$field = array_pop(array_keys($check));
+		$isCheck = array_keys($check);
+		$field = array_pop($isCheck);
 
 		if (!empty($check[$field]['remove'])) {
 			return true;
@@ -478,7 +484,8 @@ class UploadBehavior extends ModelBehavior {
  * @access public
  */
 	public function noPhpExtensionErrors(&$model, $check, $requireUpload = true) {
-		$field = array_pop(array_keys($check));
+		$isCheck = array_keys($check);
+		$field = array_pop($isCheck);
 
 		if (!empty($check[$field]['remove'])) {
 			return true;
@@ -502,7 +509,8 @@ class UploadBehavior extends ModelBehavior {
  * @access public
  */
 	public function isValidMimeType(&$model, $check, $mimetypes = array(), $requireUpload = true) {
-		$field = array_pop(array_keys($check));
+		$isCheck = array_keys($check);
+		$field = array_pop($isCheck);
 
 		if (!empty($check[$field]['remove'])) {
 			return true;
@@ -546,7 +554,8 @@ class UploadBehavior extends ModelBehavior {
  * @access public
  */
 	public function isWritable(&$model, $check, $requireUpload = true) {
-		$field = array_pop(array_keys($check));
+		$isCheck = array_keys($check);
+		$field = array_pop($isCheck);
 
 		if (!empty($check[$field]['remove'])) {
 			return true;
@@ -570,7 +579,8 @@ class UploadBehavior extends ModelBehavior {
  * @access public
  */
 	public function isValidDir(&$model, $check, $requireUpload = true) {
-		$field = array_pop(array_keys($check));
+		$isCheck = array_keys($check);
+		$field = array_pop($isCheck);
 
 		if (!empty($check[$field]['remove'])) {
 			return true;
@@ -594,7 +604,8 @@ class UploadBehavior extends ModelBehavior {
  * @access public
  */
 	public function isBelowMaxSize(&$model, $check, $size = null, $requireUpload = true) {
-		$field = array_pop(array_keys($check));
+		$isCheck = array_keys($check);
+		$field = array_pop($isCheck);
 
 		if (!empty($check[$field]['remove'])) {
 			return true;
@@ -625,7 +636,8 @@ class UploadBehavior extends ModelBehavior {
  * @access public
  */
 	public function isAboveMinSize(&$model, $check, $size = null, $requireUpload = true) {
-		$field = array_pop(array_keys($check));
+		$isCheck = array_keys($check);
+		$field = array_pop($isCheck);
 
 		if (!empty($check[$field]['remove'])) {
 			return true;
@@ -656,7 +668,8 @@ class UploadBehavior extends ModelBehavior {
  * @access public
  */
 	public function isValidExtension(&$model, $check, $extensions = array(), $requireUpload = true) {
-		$field = array_pop(array_keys($check));
+		$isCheck = array_keys($check);
+		$field = array_pop($isCheck);
 
 		if (!empty($check[$field]['remove'])) {
 			return true;
@@ -702,7 +715,8 @@ class UploadBehavior extends ModelBehavior {
  * @access public
  */
 	public function isAboveMinHeight(&$model, $check, $height = null, $requireUpload = true) {
-		$field = array_pop(array_keys($check));
+		$isCheck = array_keys($check);
+		$field = array_pop($isCheck);
 
 		if (!empty($check[$field]['remove'])) {
 			return true;
@@ -734,7 +748,8 @@ class UploadBehavior extends ModelBehavior {
  * @access public
  */
 	public function isBelowMaxHeight(&$model, $check, $height = null, $requireUpload = true) {
-		$field = array_pop(array_keys($check));
+		$isCheck = array_keys($check);
+		$field = array_pop($isCheck);
 
 		if (!empty($check[$field]['remove'])) {
 			return true;
@@ -766,7 +781,8 @@ class UploadBehavior extends ModelBehavior {
  * @access public
  */
 	public function isAboveMinWidth(&$model, $check, $width = null, $requireUpload = true) {
-		$field = array_pop(array_keys($check));
+		$isCheck = array_keys($check);
+		$field = array_pop($isCheck);
 
 		if (!empty($check[$field]['remove'])) {
 			return true;
@@ -798,7 +814,8 @@ class UploadBehavior extends ModelBehavior {
  * @access public
  */
 	public function isBelowMaxWidth(&$model, $check, $width = null, $requireUpload = true) {
-		$field = array_pop(array_keys($check));
+		$isCheck = array_keys($check);
+		$field = array_pop($isCheck);
 
 		if (!empty($check[$field]['remove'])) {
 			return true;
