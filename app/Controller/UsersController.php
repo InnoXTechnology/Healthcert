@@ -25,11 +25,11 @@ class UsersController extends AppController
 		if ($this->Auth->user('type') == 'E') {
 			$this->redirect(array('controller' => 'ExporterPanel', 'action' => 'index'));
 		}
-		else if($this->Auth->user('type') == 'P') {
-			$this->redirect(array('controller' => 'PackerPanel', 'action' => 'index'));
-		}
 		else if($this->Auth->user('type') == 'D') {
 			$this->redirect(array('controller' => 'DOAStaffPanel', 'action' => 'index'));
+		}
+		else if($this->Auth->user('type') == 'A') {
+			$this->redirect(array('controller' => 'LabAdminPanel', 'action' => 'index'));
 		}
 		else if($this->Auth->user('type') == 'L') {
 			$this->redirect(array('controller' => 'LabStaffPanel', 'action' => 'index'));
@@ -42,11 +42,11 @@ class UsersController extends AppController
 				if ($this->Auth->user('type') == 'E') {
 					$this->redirect(array('controller' => 'ExporterPanel', 'action' => 'index'));
 				}
-				else if($this->Auth->user('type') == 'P') {
-					$this->redirect(array('controller' => 'PackerPanel', 'action' => 'index'));
-				}
 				else if($this->Auth->user('type') == 'D') {
 					$this->redirect(array('controller' => 'DOAStaffPanel', 'action' => 'index'));
+				}
+				else if($this->Auth->user('type') == 'A') {
+					$this->redirect(array('controller' => 'LabAdminPanel', 'action' => 'index'));
 				}
 				else if($this->Auth->user('type') == 'L') {
 					$this->redirect(array('controller' => 'LabStaffPanel', 'action' => 'index'));
@@ -103,40 +103,6 @@ class UsersController extends AppController
 				$this->Session->setFlash('The user could not be saved. Please try again.');
 			}
 			
-		}
-	}
-
-	public function packer_regis() {
-		if ($this->request->is('post'))
-		{
-
-			if (empty($this->request->data['User']['password']) || $this->request->data['User']['password'] != $this->request->data['User']['repassword'])
-			{
-				$this->request->data['User']['password'] = '';
-				$this->request->data['User']['repassword'] = '';
-				$this->Session->setFlash('Password doesn\'t match.');
-				return;
-			}
-
-			$this->request->data['User']['password'] = AuthComponent::password($this->request->data['User']['password']);
-
-			if ($this->User->save($this->request->data))
-			{
-				$data = $this->request->data;
-				$packer = $data['Packer'];
-				$lastUser = $this->User->findByUsername($data['User']['username']);
-				$packer['user_id'] = $lastUser['User']['id'];
-				if ($this->Packer->save($packer)) {
-					$this->Session->setFlash('The user has been saved.');
-					$this->redirect(array('action' => 'login'));
-				}
-			}
-			else
-			{
-				$this->request->data['User']['password'] = '';
-				$this->request->data['User']['repassword'] = '';
-				$this->Session->setFlash('The user could not be saved. Please try again.');
-			}
 		}
 	}
 }

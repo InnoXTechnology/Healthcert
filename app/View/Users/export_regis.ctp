@@ -128,7 +128,7 @@ $arr_province = array(
 	  	</div>
 	</div>
 		<?= $this->Form->submit('ลงทะเบียน', array('class' => 'btn btn-success', 'style' => 'float:right; margin-left:10px;')); ?>
-		<?= $this->Form->button('ยกเลิก', array('onclick' => "location.href='".$this->Html->url(array('action' => 'login'))."'" ,'class' => 'btn', 'style' => 'float:right; margin-left:10px;')); ?>
-	</div>
 	<?= $this->Form->end(); ?>
+		<?= $this->Form->button('ยกเลิก', array('onclick' => "location.href='".$this->Html->url(array('action' => 'login'))."'" ,'class' => 'btn', 'style' => 'float:right; margin-left:10px;margin-top: -6px;')); ?>
+	</div>
 </div>

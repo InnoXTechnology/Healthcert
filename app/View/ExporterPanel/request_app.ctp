@@ -136,7 +136,7 @@
 		<table border="0" cellspacing="2" cellpadding="6" width="750px" style="margin-left:30px;">
 			<?= $this->Form->input('Packer.id', array('value' => '', 'div' => false, 'type' => 'hidden', 'id' => 'packerId'));?>
 			<?= $this->Form->input('User.id', array('value' => '', 'div' => false, 'type' => 'hidden', 'id' => 'userId'));?>
-		    <tr><td width="170px">ชื่อผู้ประกอบการโรงคัดบรรจุ<br/><div class="engDescription">Name of Packer</div></td><td colspan="3"><?= $this->Form->input('Packer.name', array('class' => 'span7', 'id' => 'packerName' ,'div' => false, 'label' => false, 'empty' => '(โปรดเลือก)', 'options' => $name_list));?></td></tr>
+		    <tr><td width="170px">ชื่อผู้ประกอบการโรงคัดบรรจุ<br/><div class="engDescription">Name of Packer</div></td><td colspan="3"><?= $this->Form->input('Packer.name', array('class' => 'span7', 'id' => 'packerName' ,'div' => false, 'label' => false,));?></td></tr>
 		    <tr><td>ที่อยู่ผู้ประกอบการโรงคัดบรรจุ<br/><div class="engDescription">Address of Packer</div></td><td colspan="3"><?= $this->Form->input('Packer.address', array('class' => 'span7', 'id' => 'packerAddress' ,'div' => false, 'label' => false));?></td></tr>
 		    <tr><td>จังหวัด<br/><div class="engDescription">Province</div></td><td width="200px"><?= $this->Form->input('Packer.province', array('class' => 'span3', 'id' => 'packerProvince' , 'options' => $arr_province, 'div' => false, 'label' => false, 'empty' => '(โปรดเลือก)'));?></td><td width="76px">รหัสไปรษณีย์<br/><div class="engDescription">Postal Code</div></td><td><?= $this->Form->input('Packer.postcode', array('class' => 'span3', 'id' => 'packerPostcode' ,'div' => false, 'label' => false));?></td></tr>
 			<tr><td>โทรศัพท์<br/><div class="engDescription">Telephone</div></td><td><?= $this->Form->input('Packer.phone', array('class' => 'span3', 'id' => 'packerPhone' ,'div' => false, 'label' => false));?></td><td >โทรสาร<br/><div class="engDescription">Facsimile</div></td><td><?= $this->Form->input('Packer.phone', array('class' => 'span3','id' => 'packerFax' , 'div' => false, 'label' => false));?></td></tr>
@@ -199,9 +199,6 @@
 		</div>
 	</div>
 	
-	
-	
-
 	</div>
 </div>
 	<?= $this->Form->end(); ?>
@@ -209,53 +206,3 @@
 
 	<script src="../js/jquery-1.8.1.js"></script>
 	<script src="../js/bootstrap.js"></script>
-
-	<script type="text/javascript">
-		$(document).ready(function() {
-			if($("#packerName").val() != '') {
-				$.post("getPacker/" + $("#packerName").val() + ".json", {}, function(data) { 
-					$('#packerAddress').val(data['Packer']['address']);
-					$('#packerProvince').val(data['Packer']['province']);
-					$('#packerPostcode').val(data['Packer']['postcode']);
-					$('#packerPhone').val(data['Packer']['phone']);
-					$('#packerFax').val(data['Packer']['fax']);
-					$('#packerId').val(data['Packer']['id']);
-					$('#userId').val(data['User']['id']);
-				});
-			} else {
-				$('#packerAddress').val('');
-				$('#packerProvince').val('');
-				$('#packerPostcode').val('');
-				$('#packerPhone').val('');
-				$('#packerFax').val('');
-				$('#packerId').val('');
-			}
-			$("#packerName").change(function(){
-				if($("#packerName").val() != '') {
-					$.post("getPacker/" + $("#packerName").val() + ".json", {}, function(data) { 
-						$('#packerAddress').val(data['Packer']['address']);
-						$('#packerProvince').val(data['Packer']['province']);
-						$('#packerPostcode').val(data['Packer']['postcode']);
-						$('#packerPhone').val(data['Packer']['phone']);
-						$('#packerFax').val(data['Packer']['fax']);
-						$('#packerId').val(data['Packer']['id']);
-						$('#userId').val(data['User']['id']);
-					});
-				} else {
-					$('#packerAddress').val('');
-					$('#packerProvince').val('');
-					$('#packerPostcode').val('');
-					$('#packerPhone').val('');
-					$('#packerFax').val('');
-					$('#packerId').val('');
-				}
-			});
-			
-			$('#packerAddress').attr('disabled','disabled');
-			$('#packerProvince').attr('disabled','disabled');
-			$('#packerPostcode').attr('disabled','disabled');
-			$('#packerPhone').attr('disabled','disabled');
-			$('#packerFax').attr('disabled','disabled');
-
-		});
-	</script>

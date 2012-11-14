@@ -9,11 +9,11 @@ class ExporterPanelController extends AppController
 	
 	public function beforeFilter()
 	{
-		if($this->Auth->user('type') == 'P') {
-			$this->redirect(array('controller' => 'PackerPanel', 'action' => 'index'));
-		}
-		else if($this->Auth->user('type') == 'D') {
+		if($this->Auth->user('type') == 'D') {
 			$this->redirect(array('controller' => 'DOAStaffPanel', 'action' => 'index'));
+		}
+		else if($this->Auth->user('type') == 'A') {
+			$this->redirect(array('controller' => 'LabAdminPanel', 'action' => 'index'));
 		}
 		else if($this->Auth->user('type') == 'L') {
 			$this->redirect(array('controller' => 'LabStaffPanel', 'action' => 'index'));
@@ -31,9 +31,6 @@ class ExporterPanelController extends AppController
 
 	public function requestApp()
 	{
-		$name_list = $this->Packer->find('list');
-		$this->set(compact('name_list'));
-
 		if($this->request->is('post')) {
 			$data = $this->request->data;
 			if($this->PackingHouse->validates() && $this->ExportDetail->validates()) {
@@ -66,13 +63,5 @@ class ExporterPanelController extends AppController
 
 	}
 
-	public function getPacker($id = null)
-	{
-		if($this->request->is('post')) {
-			$data = $this->Packer->findById($id);
-			$this->set(compact('data'));
-			$this->set('_serialize', 'data');
-		}
-	}
 }
 ?>

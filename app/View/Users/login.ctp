@@ -27,10 +27,8 @@
 				</div>
 				<div id="links_left"><?= $this->Html->link('ลืมรหัสผ่าน', array( 'action' => 'forget_pass')); ?></div>
 				<div id="links_right">
-					ลงทะเบียน
 					<?= $this->Html->link('
-					(ผู้ส่งออก,', array( 'action' => 'export_regis')); ?>
-					<?= $this->Html->link(' ผู้ประกอบการ)', array( 'action' => 'packer_regis')); ?>
+					ลงทะเบียน', array( 'action' => 'export_regis')); ?>
 				</div>
 		</div>
 		<div id="wrapperbottom"></div>
