@@ -157,7 +157,7 @@
 
 #links_left a{
 	color:#bbb;
-	font-size:14px;
+	font-size:16px;
 	text-decoration:none;
 	transition: color 0.5s linear;
 	-moz-transition: color 0.5s linear;
@@ -172,7 +172,7 @@
 #links_right{
 	float:right;
 	color:#bbb;
-	font-size:14px;
+	font-size:16px;
 	position:relative;
 	padding-top:15px;
 	margin-right:25px;
@@ -180,7 +180,7 @@
 
 #links_right a{
 	color:#bbb;
-	font-size:14px;
+	font-size:16px;
 	text-decoration:none;
 	transition: color 0.5s linear;
 	-moz-transition: color 0.5s linear;
@@ -368,7 +368,7 @@ p.error em {
 }
 
 #flashMessage {
-	margin: 70px 250px -40px;
+	margin: 40px 250px -40px;
 }
 
 .engDescription{

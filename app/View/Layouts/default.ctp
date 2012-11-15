@@ -46,9 +46,6 @@
 		</div>
 	</div>
 		<div id="content">
-
-			<?php echo $this->Session->flash(); ?>
-
 			<?php echo $this->fetch('content'); ?>
 		</div>
 	<div class="footer">

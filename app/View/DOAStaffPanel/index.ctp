@@ -44,7 +44,7 @@
 	</div>
 	
 	
-	
+	<?php echo $this->Session->flash(); ?>
 	<div class="container" style="margin-top:50px;">
 		<div class="containerMain" style="min-height:500px;">
 			<div class="side" style="margin-top:30px">

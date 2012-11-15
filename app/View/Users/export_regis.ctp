@@ -80,6 +80,7 @@ $arr_province = array(
 ?>
 <!-- new -->
 
+<?php echo $this->Session->flash(); ?>
 <div class="container" style="margin-top:95px;">
 		<div class="containerMain">
 		<?= $this->Form->create(array('type' => 'file')); ?>

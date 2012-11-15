@@ -126,6 +126,7 @@
 		</div>
 </div>
 
+<?php echo $this->Session->flash(); ?>
 	<div class="container" style="margin-top:50px;">
 		<div class="containerMain">
 		<?= $this->Form->create('ExporterRequest'); ?>

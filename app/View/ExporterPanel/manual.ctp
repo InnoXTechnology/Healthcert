@@ -41,5 +41,6 @@
 			</div>
 		</div>
 </div>
+<?php echo $this->Session->flash(); ?>
 	<script src="../js/jquery-1.8.1.js"></script>
 	<script src="../js/bootstrap.js"></script>

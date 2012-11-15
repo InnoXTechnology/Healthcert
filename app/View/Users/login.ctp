@@ -1,3 +1,4 @@
+<?php echo $this->Session->flash(); ?>
 <div class="container" style="margin-top:50px;">
 	<div id="wrapper" style="margin-top:-30px; margin-bottom:80px;">
 		<?= $this->Form->create('User', array('action' => 'login')); ?>
