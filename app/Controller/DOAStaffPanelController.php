@@ -12,10 +12,10 @@ class DOAStaffPanelController extends AppController
 		if ($this->Auth->user('type') == 'E') {
 			$this->redirect(array('controller' => 'ExporterPanel', 'action' => 'index'));
 		}
-		else if($this->Auth->user('type') == 'A') {
+		else if($this->Auth->user('type') == 'H') {
 			$this->redirect(array('controller' => 'LabAdminPanel', 'action' => 'index'));
 		}
-		else if($this->Auth->user('type') == 'L') {
+		else if($this->Auth->user('type') == 'T') {
 			$this->redirect(array('controller' => 'LabStaffPanel', 'action' => 'index'));
 		}
 	}

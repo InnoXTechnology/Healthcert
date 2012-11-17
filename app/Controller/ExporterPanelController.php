@@ -12,10 +12,10 @@ class ExporterPanelController extends AppController
 		if($this->Auth->user('type') == 'D') {
 			$this->redirect(array('controller' => 'DOAStaffPanel', 'action' => 'index'));
 		}
-		else if($this->Auth->user('type') == 'A') {
+		else if($this->Auth->user('type') == 'H') {
 			$this->redirect(array('controller' => 'LabAdminPanel', 'action' => 'index'));
 		}
-		else if($this->Auth->user('type') == 'L') {
+		else if($this->Auth->user('type') == 'T') {
 			$this->redirect(array('controller' => 'LabStaffPanel', 'action' => 'index'));
 		}
 		$user = $this->Exporter->findByUserId($this->Auth->user('id'));

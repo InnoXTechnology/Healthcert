@@ -8,7 +8,7 @@ class UsersController extends AppController
 
 	public function beforeFilter()
 	{
-		$this->Auth->allow('export_regis', 'forget_pass', 'packer_regis');
+		$this->Auth->allow('export_regis', 'forget_pass', 'packer_regis','adminregis');
 	}
 
 	public function forget_pass()
@@ -28,10 +28,10 @@ class UsersController extends AppController
 		else if($this->Auth->user('type') == 'D') {
 			$this->redirect(array('controller' => 'DOAStaffPanel', 'action' => 'index'));
 		}
-		else if($this->Auth->user('type') == 'A') {
+		else if($this->Auth->user('type') == 'H') {
 			$this->redirect(array('controller' => 'LabAdminPanel', 'action' => 'index'));
 		}
-		else if($this->Auth->user('type') == 'L') {
+		else if($this->Auth->user('type') == 'T') {
 			$this->redirect(array('controller' => 'LabStaffPanel', 'action' => 'index'));
 		}
 
@@ -45,10 +45,10 @@ class UsersController extends AppController
 				else if($this->Auth->user('type') == 'D') {
 					$this->redirect(array('controller' => 'DOAStaffPanel', 'action' => 'index'));
 				}
-				else if($this->Auth->user('type') == 'A') {
+				else if($this->Auth->user('type') == 'H') {
 					$this->redirect(array('controller' => 'LabAdminPanel', 'action' => 'index'));
 				}
-				else if($this->Auth->user('type') == 'L') {
+				else if($this->Auth->user('type') == 'T') {
 					$this->redirect(array('controller' => 'LabStaffPanel', 'action' => 'index'));
 				}
 			}
@@ -103,6 +103,39 @@ class UsersController extends AppController
 				$this->Session->setFlash('The user could not be saved. Please try again.');
 			}
 			
+		}
+	}
+
+	public function adminregis($value = null)
+	{
+		if (isset($value) && $value == 'health_cert_ad') {
+			if ($this->request->is('post')) {
+				if (empty($this->request->data['User']['password']) || $this->request->data['User']['password'] != $this->request->data['User']['repassword'])
+				{
+					$this->request->data['User']['password'] = '';
+					$this->request->data['User']['repassword'] = '';
+					$this->Session->setFlash('Password doesn\'t match.');
+					return;
+				}
+
+				$this->request->data['User']['password'] = AuthComponent::password($this->request->data['User']['password']);
+
+				if ($this->User->save($this->request->data))
+				{
+					$this->Session->setFlash('The user has been saved.');
+					$this->redirect(array('action' => 'login'));
+				}
+				else
+				{
+					$this->request->data['User']['password'] = '';
+					$this->request->data['User']['repassword'] = '';
+					$this->Session->setFlash('The user could not be saved. Please try again.');
+				}
+			
+			}
+		} else {
+			$this->Session->setFlash('Access denied');
+			$this->redirect(array('action' => 'index'));
 		}
 	}
 }
