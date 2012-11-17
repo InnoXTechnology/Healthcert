@@ -54,7 +54,7 @@
 				<tr align="center" style="color:#3F3F3F"><td><?= $request['ExporterRequest']['receipt_no']; ?></td>
 					<?php $date = date_create($request['ExporterRequest']['receipt_date']); ?>
 					<td><?= date_format($date, 'd F Y เวลา H:i น.'); ?></td><td>ทดสอบ</td>
-					<td width="130px"><button class="btn" style="width:50px;">ดู</button>&nbsp;<button class="btn btn-danger" style="width:50px;">ลบ</button></td>
+					<td width="130px"><?= $this->Form->button('ดู', array('onclick' => "location.href='".$this->Html->url(array('action' => 'view_report_pk11',$request['ExporterRequest']['id']))."'" ,'class' => 'btn', 'style' => 'width:50px;')); ?>&nbsp;<?= $this->Form->button('ลบ', array('onclick' => "location.href='".$this->Html->url(array('action' => 'delete_by_id',$request['ExporterRequest']['id']))."'" ,'class' => 'btn btn-danger', 'style' => 'width:50px;')); ?></td>
 				</tr>
 			<?php endforeach; ?>
 			</table>
@@ -74,5 +74,3 @@
 		
 	</div>
 </div>
-	<script src="../js/jquery-1.8.1.js"></script>
-	<script src="../js/bootstrap.js"></script>

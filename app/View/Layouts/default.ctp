@@ -37,11 +37,13 @@
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
+	<script src="<?= "http://".$_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"] ?>/js/jquery-1.8.1.js"></script>
+	<script src="<?= "http://".$_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"] ?>/js/bootstrap.js"></script>
 </head>
 <body>
 	<div class="topBackground">
 		<div class="head1">
-			<img src="../img/logo.png" style="margin-top:10px; float:left; margin-left:45px; margin-bottom:-60px; "/>
+			<img src="<?= "http://".$_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"] ?>/img/logo.png" style="margin-top:10px; float:left; margin-left:45px; margin-bottom:-60px; "/>
 			<p style="margin-top:70px;" id="headtext">ระบบยื่นคำขอและออกใบรับรองคุณภาพสินค้าเกษตร</p>
 		</div>
 	</div>

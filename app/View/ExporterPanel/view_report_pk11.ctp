@@ -196,7 +196,7 @@
 		</table>
 		
 		<div style="height:20px; padding:10px;">
-		<?= $this->Form->submit('บันทึก', array('class' => 'btn btn-success', 'style' => 'float:right; margin-left:10px;')); ?>
+		<?= $this->Form->submit('ย้อนกลับ', array('class' => 'btn btn-success', 'style' => 'float:right; margin-left:10px;', 'id' => 'submitBack')); ?>
 		</div>
 	</div>
 	
@@ -204,3 +204,12 @@
 </div>
 	<?= $this->Form->end(); ?>
 </div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("input").attr("disabled", true);
+		$("textarea").attr("disabled", true);
+		$("select").attr("disabled", true);
+		$("#submitBack").removeAttr("disabled");
+	});
+</script>

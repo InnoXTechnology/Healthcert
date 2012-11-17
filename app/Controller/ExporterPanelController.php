@@ -26,6 +26,7 @@ class ExporterPanelController extends AppController
 	public function index()
 	{
 		$requests = $this->ExporterRequest->findAllByExporterId($this->Auth->user('id'));
+		//debug($requests);
 		$this->set(compact('requests'));
 	}
 
@@ -63,5 +64,49 @@ class ExporterPanelController extends AppController
 
 	}
 
+
+	public function view_report_pk11($id = null)
+	{
+		if ($this->request->is('post')) {
+			$this->redirect(array('action' => 'index'));
+		}
+		if (isset($id)) {
+			$data = $this->ExporterRequest->findById($id);
+			if ($data['ExporterRequest']['exporter_id'] === $this->Auth->user('id')) {
+				$this->request->data = $data;
+				//debug($this->request->data);
+			} else {
+				$this->redirect(array('action' => 'index'));
+				$this->Session->setFlash('Access denied');
+			}
+
+		} else {
+			$this->redirect(array('action' => 'index'));
+			$this->Session->setFlash('Access denied');
+		}
+	}
+
+	public function delete_by_id($id = null)
+	{
+		if (isset($id)) {
+			$data = $this->ExporterRequest->findById($id);
+			if ($data['ExporterRequest']['exporter_id'] === $this->Auth->user('id')) {
+				if ($this->ExporterRequest->delete($id) && $this->ExporterRequest->delete($data['ExporterRequest']['packingHouse_id'])) {
+					$this->redirect(array('action' => 'index'));
+					$this->Session->setFlash('This requests was cancel.');
+				}
+				else {
+					$this->redirect(array('action' => 'index'));
+					$this->Session->setFlash('Cannot Delete Request. Plases contect  ');
+				}
+			} else {
+				$this->redirect(array('action' => 'index'));
+				$this->Session->setFlash('Access denied');
+			}
+		} else {
+			$this->redirect(array('action' => 'index'));
+			$this->Session->setFlash('Access denied');
+		}
+	}
 }
 ?>
