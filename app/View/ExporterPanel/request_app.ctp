@@ -129,7 +129,7 @@
 <?php echo $this->Session->flash(); ?>
 	<div class="container" style="margin-top:50px;">
 		<div class="containerMain">
-		<?= $this->Form->create('ExporterRequest'); ?>
+		<?= $this->Form->create('Request'); ?>
 			<div class="headTopic">คำขอใบรับรองสุขอนามัย<br/><div class="engDescriptionHead">Application for Health Certificate</div></div>
 		
 			<div class="side">
@@ -140,31 +140,30 @@
 		    <tr><td width="170px">ชื่อผู้ประกอบการโรงคัดบรรจุ<br/><div class="engDescription">Name of Packer</div></td><td colspan="3"><?= $this->Form->input('Packer.name', array('class' => 'span7', 'id' => 'packerName' ,'div' => false, 'label' => false,));?></td></tr>
 		    <tr><td>ที่อยู่ผู้ประกอบการโรงคัดบรรจุ<br/><div class="engDescription">Address of Packer</div></td><td colspan="3"><?= $this->Form->input('Packer.address', array('class' => 'span7', 'id' => 'packerAddress' ,'div' => false, 'label' => false));?></td></tr>
 		    <tr><td>จังหวัด<br/><div class="engDescription">Province</div></td><td width="200px"><?= $this->Form->input('Packer.province', array('class' => 'span3', 'id' => 'packerProvince' , 'options' => $arr_province, 'div' => false, 'label' => false, 'empty' => '(โปรดเลือก)'));?></td><td width="76px">รหัสไปรษณีย์<br/><div class="engDescription">Postal Code</div></td><td><?= $this->Form->input('Packer.postcode', array('class' => 'span3', 'id' => 'packerPostcode' ,'div' => false, 'label' => false));?></td></tr>
-			<tr><td>โทรศัพท์<br/><div class="engDescription">Telephone</div></td><td><?= $this->Form->input('Packer.phone', array('class' => 'span3', 'id' => 'packerPhone' ,'div' => false, 'label' => false));?></td><td >โทรสาร<br/><div class="engDescription">Facsimile</div></td><td><?= $this->Form->input('Packer.phone', array('class' => 'span3','id' => 'packerFax' , 'div' => false, 'label' => false));?></td></tr>
+			<tr><td>โทรศัพท์<br/><div class="engDescription">Telephone</div></td><td><?= $this->Form->input('Packer.phone', array('class' => 'span3', 'id' => 'packerPhone' ,'div' => false, 'label' => false));?></td><td >โทรสาร<br/><div class="engDescription">Facsimile</div></td><td><?= $this->Form->input('Packer.fax', array('class' => 'span3','id' => 'packerFax' , 'div' => false, 'label' => false));?></td></tr>
 		</table>
 	</div>
 	<div class="side">
 		
 		<legend1 style="color:#5BAF5B;">โรงคัดบรรจุ</legend1>
 		<table border="0" cellspacing="2" cellpadding="6" width="750px" style="margin-left:30px;">
-		    <tr><td width="170px">รหัสโรงคัดบรรจุ<br/><div class="engDescription">Packing House Code</div></td><td colspan="3"><?= $this->Form->input('PackingHouse.code', array('class' => 'span7', 'div' => false, 'label' => false));?></td></tr>
-			<tr><td>ชื่อโรงคัดบรรจุ<br/><div class="engDescription">Name of Packing House</div></td><td colspan="3"><?= $this->Form->input('PackingHouse.name', array('class' => 'span7', 'div' => false, 'label' => false));?></td></tr>
-		    <tr><td>ที่อยู่โรงคัดบรรจุ<br/><div class="engDescription">Address of Packing House</div></td><td colspan="3"><?= $this->Form->input('PackingHouse.address', array('class' => 'span7', 'div' => false, 'label' => false));?></td></tr>
-		    <tr><td>จังหวัด<br/><div class="engDescription">Province</div></td><td width="200px"><?= $this->Form->input('PackingHouse.province', array('class' => 'span3', 'options' => $arr_province, 'div' => false, 'label' => false, 'empty' => '(โปรดเลือก)'));?></td><td width="78px">รหัสไปรษณีย์<br/><div class="engDescription">Postal Code</div></td><td><?= $this->Form->input('PackingHouse.postcode', array('class' => 'span3', 'div' => false, 'label' => false));?></td></tr>
-			<tr><td>โทรศัพท์<br/><div class="engDescription">Telephone</div></td><td><?= $this->Form->input('PackingHouse.phone', array('class' => 'span3', 'div' => false, 'label' => false));?></td><td >โทรสาร<br/><div class="engDescription">Facsimile</div></td><td><?= $this->Form->input('PackingHouse.fax', array('class' => 'span3', 'div' => false, 'label' => false));?></td></tr>
+		    <tr><td>ที่อยู่โรงคัดบรรจุ<br/><div class="engDescription">Address of Packing House</div></td><td colspan="3"><?= $this->Form->input('Packinghouse.address', array('class' => 'span7', 'div' => false, 'label' => false));?></td></tr>
+		    <tr><td>จังหวัด<br/><div class="engDescription">Province</div></td><td width="200px"><?= $this->Form->input('Packinghouse.province', array('class' => 'span3', 'options' => $arr_province, 'div' => false, 'label' => false, 'empty' => '(โปรดเลือก)'));?></td><td width="78px">รหัสไปรษณีย์<br/><div class="engDescription">Postal Code</div></td><td><?= $this->Form->input('Packinghouse.postcode', array('class' => 'span3', 'div' => false, 'label' => false));?></td></tr>
+			<tr><td>โทรศัพท์<br/><div class="engDescription">Telephone</div></td><td><?= $this->Form->input('Packinghouse.phone', array('class' => 'span3', 'div' => false, 'label' => false));?></td><td >โทรสาร<br/><div class="engDescription">Facsimile</div></td><td><?= $this->Form->input('Packinghouse.fax', array('class' => 'span3', 'div' => false, 'label' => false));?></td></tr>
 		</table>
 	</div>
 	<div class="side">
 		
 		<legend1 style="color:#5BAF5B;">พืชที่ยื่นขอใบรับรองสุขอนามัย</legend1>
 		<table border="0" cellspacing="2" cellpadding="6" width="750px" style="margin-left:30px;">
-		    <tr><td width="200px">ชื่อพืชหรือผลิตผลพืช<br/><div class="engDescription">Name of plants or plant product</div></td><td colspan="5"><?= $this->Form->input('ExporterRequest.product_name', array('class' => 'span7', 'div' => false, 'label' => false));?></td></tr>
-			<tr><td>น้ำหนัก<br/><div class="engDescription">Weight</div></td><td width="150px"><?= $this->Form->input('ExporterRequest.product_weight', array('class' => 'span2', 'div' => false, 'label' => false));?></td><td width="100px">กิโลกรัม<br/><div class="engDescription">Kilogram</div></td><td width="30px">มูลค่า<br/><div class="engDescription">Value</div></td><td><?= $this->Form->input('ExporterRequest.product_value', array('class' => 'span2', 'div' => false, 'label' => false));?></td><td width="60px">บาท<br/><div class="engDescription">Baht</div></td></tr>
-			<tr><td>รหัสแปลง GAP/Organic<br/><div class="engDescription">Code of GAP/Organic</div></td><td colspan="5"><?= $this->Form->input('ExporterRequest.gap_code', array('class' => 'span7', 'div' => false, 'label' => false));?></td></tr>
+		    <tr><td width="200px">ชื่อพืชหรือผลิตผลพืช<br/><div class="engDescription">Name of plants or plant product</div></td><td colspan="5"><?= $this->Form->input('Request.product_name', array('class' => 'span7', 'div' => false, 'label' => false));?></td></tr>
+			<tr><td>น้ำหนัก<br/><div class="engDescription">Weight</div></td><td width="150px"><?= $this->Form->input('Request.product_weight', array('class' => 'span2', 'div' => false, 'label' => false));?></td><td width="100px">กิโลกรัม<br/><div class="engDescription">Kilogram</div></td><td width="30px">มูลค่า<br/><div class="engDescription">Value</div></td><td><?= $this->Form->input('Request.product_value', array('class' => 'span2', 'div' => false, 'label' => false));?></td><td width="60px">บาท<br/><div class="engDescription">Baht</div></td></tr>
+			<tr><td>รหัสแปลง GAP/Organic<br/><div class="engDescription">Code of GAP/Organic</div></td><td colspan="5"><?= $this->Form->input('Request.gap_code', array('class' => 'span7', 'div' => false, 'label' => false));?></td></tr>
 		</table>
 		<table border="0" cellspacing="2" cellpadding="6" width="750px" style="margin-left:30px;">
-		    <tr><td width="330px">ชื่อเชื้อจุลินทรีย์หรือสิ่งอื่นใดที่เป็นอันตรายต่อมนุษย์<br/><div class="engDescription">Name of microorganisms or other harmful substances</div></td><td width="10px"><?= $this->Form->input('ExporterRequest.is_microorganisms', array('class' => false, 'div' => false, 'label' => false));?></td><td>จุลินทรีย์<br/><div class="engDescription">Microorganisms</div></td><td width="10px"><?= $this->Form->input('ExporterRequest.is_harmful', array('class' => false, 'div' => false, 'label' => false));?></td><td>สารตกค้าง<br/><div class="engDescription">Harmful Substances</div></td></tr>
+		    <tr><td width="330px">ชื่อเชื้อจุลินทรีย์หรือสิ่งอื่นใดที่เป็นอันตรายต่อมนุษย์<br/><div class="engDescription">Name of microorganisms or other harmful substances</div></td><td width="10px"><?= $this->Form->input('Request.is_microorganisms', array('class' => false, 'div' => false, 'label' => false));?></td><td>จุลินทรีย์<br/><div class="engDescription">Microorganisms</div></td><td width="10px"><?= $this->Form->input('Request.is_harmful', array('class' => false, 'div' => false, 'label' => false));?></td><td>สารตกค้าง<br/><div class="engDescription">Harmful Substances</div></td></tr>
 		</table>
+		<?= $this->Form->input('Request.status', array('value' => 'กำลังดำเนินการ', 'div' => false, 'type' => 'hidden', 'id' => 'packerId'));?>
 	</div>
 	
 <div class="side">
@@ -173,7 +172,7 @@
 		
 		<table border="0" cellspacing="2" cellpadding="6" width="750px" style="margin-left:30px;">
 		    <tr><td width="200px">ส่งโดยพาหนะ<br/><div class="engDescription">Means of Conveyance</div></td><td colspan="5">
-		    	<?= $this->Form->input('ExporterRequest.conveyance', array('class' => 'span3', 'options' => $transports, 'div' => false, 'label' => false, 'empty' => '(โปรดเลือก)'));?>
+		    	<?= $this->Form->input('Request.vehicle', array('class' => 'span3', 'options' => $transports, 'div' => false, 'label' => false, 'empty' => '(โปรดเลือก)'));?>
 		    </td></tr>
 			
 		</table>
@@ -189,10 +188,10 @@
 		
 		
 		<table border="0" cellspacing="2" cellpadding="6" width="750px" style="margin-left:30px;">
-			<tr><td>ผู้รับสินค้า<br/><div class="engDescription">Consignee</div></td><td colspan="5"><?= $this->Form->input('ExportDetail.consignee', array('class' => 'span7', 'div' => false, 'label' => false));?></td></tr>
-			<tr><td>ที่อยู่ผู้รับสินค้า<br/><div class="engDescription">Address of Consignee</div></td><td colspan="5"><?= $this->Form->input('ExportDetail.consignee_address', array('class' => 'span7', 'div' => false, 'label' => false));?></td></tr>
-			<tr><td>วันที่ส่ง<br/><div class="engDescription">Ship Date</div></td><td width="200px" colspan="2"><?= $this->Form->input('ExportDetail.shipment_date', array('class' => 'span1', 'div' => false, 'label' => false, 'dateFormat' => 'DMY'));?></td><td width="45px">ส่วนที่<br/><div class="engDescription">Lot No.</div></td><td colspan="2"><?= $this->Form->input('ExportDetail.lot_no', array('class' => 'span3', 'div' => false, 'label' => false));?></td></tr>
-			<tr><td>หมายเลขลงทะเบียน<br/><div class="engDescription">Registration No.</div></td><td colspan="2" width="150px"><?= $this->Form->input('ExportDetail.regis_no', array('class' => 'span3', 'div' => false, 'label' => false));?></td><td width="30px">น้ำหนัก<br/><div class="engDescription">Weight</div></td><td><?= $this->Form->input('ExportDetail.weight', array('class' => 'span2', 'div' => false, 'label' => false));?></td><td width="60px">กิโลกรัม<br/><div class="engDescription">Kilogram</div></td></tr>
+			<tr><td>ผู้รับสินค้า<br/><div class="engDescription">Consignee</div></td><td colspan="5"><?= $this->Form->input('Exportdetail.receiver', array('class' => 'span7', 'div' => false, 'label' => false));?></td></tr>
+			<tr><td>ที่อยู่ผู้รับสินค้า<br/><div class="engDescription">Address of Consignee</div></td><td colspan="5"><?= $this->Form->input('Exportdetail.receiver_addr', array('class' => 'span7', 'div' => false, 'label' => false));?></td></tr>
+			<tr><td>วันที่ส่ง<br/><div class="engDescription">Ship Date</div></td><td width="200px" colspan="2"><?= $this->Form->input('Exportdetail.ship_date', array('class' => 'span1', 'div' => false, 'label' => false, 'dateFormat' => 'DMY'));?></td><td width="45px">ส่วนที่<br/><div class="engDescription">Lot No.</div></td><td colspan="2"><?= $this->Form->input('Exportdetail.lot_no', array('class' => 'span3', 'div' => false, 'label' => false));?></td></tr>
+			<tr><td>หมายเลขลงทะเบียน<br/><div class="engDescription">Registration No.</div></td><td colspan="2" width="150px"><?= $this->Form->input('Exportdetail.regis_no', array('class' => 'span3', 'div' => false, 'label' => false));?></td><td width="30px">น้ำหนัก<br/><div class="engDescription">Weight</div></td><td><?= $this->Form->input('Exportdetail.weight', array('class' => 'span2', 'div' => false, 'label' => false));?></td><td width="60px">กิโลกรัม<br/><div class="engDescription">Kilogram</div></td></tr>
 		</table>
 		
 		<div style="height:20px; padding:10px;">

@@ -109,6 +109,50 @@ class Exporter extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'id_card' => array(
+			'notempty' => array(
+				'rule' => array('isFileUpload'),
+				'message' => 'File was missing from submission',
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'cert_corp' => array(
+			'notempty' => array(
+				'rule' => array('isFileUpload'),
+				'message' => 'File was missing from submission',
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'id_corp' => array(
+			'notempty' => array(
+				'rule' => array('isFileUpload'),
+				'message' => 'File was missing from submission',
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'app_letter' => array(
+			'notempty' => array(
+				'rule' => array('isFileUpload'),
+				'message' => 'File was missing from submission',
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 	);
 
 	public $actsAs = array(

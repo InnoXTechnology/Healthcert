@@ -3,7 +3,7 @@ App::uses('AppModel', 'Model');
 /**
  * Exportdetail Model
  *
- * @property Attatchment $Attatchment
+ * @property Request $Request
  */
 class Exportdetail extends AppModel {
 
@@ -20,16 +20,6 @@ class Exportdetail extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'attatchment_id' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 		'receiver' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -95,17 +85,24 @@ class Exportdetail extends AppModel {
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
- * belongsTo associations
+ * hasMany associations
  *
  * @var array
  */
-	public $belongsTo = array(
-		'Attatchment' => array(
-			'className' => 'Attatchment',
-			'foreignKey' => 'attatchment_id',
+	public $hasMany = array(
+		'Request' => array(
+			'className' => 'Request',
+			'foreignKey' => 'exportdetail_id',
+			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
-			'order' => ''
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
 		)
 	);
+
 }
