@@ -4,7 +4,7 @@ App::uses('AppModel', 'Model');
  * User Model
  *
  * @property Exporter $Exporter
- * @property Packer $Packer
+ * @property Labstaff $Labstaff
  */
 class User extends AppModel {
 
@@ -22,19 +22,23 @@ class User extends AppModel {
  */
 	public $validate = array(
 		'username' => array(
-			'rule-1' => array(
-				'rule' => array('notEmpty'),
-				'message' =>  'Username must not be empty.'
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-			'rule-2' => array(
-				'rule' => array('isUnique'),
-				'message' => "This username is already registered."
-			)
 		),
 		'password' => array(
-			'rule-1' => array(
-				'rule' => array('notEmpty'),
-				'message' =>  'Password must not be empty.'
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 	);
@@ -60,8 +64,8 @@ class User extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'Packer' => array(
-			'className' => 'Packer',
+		'Labstaff' => array(
+			'className' => 'Labstaff',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
 			'conditions' => '',

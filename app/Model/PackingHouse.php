@@ -1,25 +1,18 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * PackingHouse Model
+ * Packinghouse Model
  *
  * @property Packer $Packer
  */
-class PackingHouse extends AppModel {
+class Packinghouse extends AppModel {
 
 /**
  * Use table
  *
  * @var mixed False or table name
  */
-	public $useTable = 'PackingHouse';
-
-/**
- * Display field
- *
- * @var string
- */
-	public $displayField = 'name';
+	public $useTable = 'Packinghouses';
 
 /**
  * Validation rules
@@ -27,9 +20,9 @@ class PackingHouse extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'name' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
+		'packer_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -57,27 +50,7 @@ class PackingHouse extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'gmp' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'haccp' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'type' => array(
+		'fax' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',

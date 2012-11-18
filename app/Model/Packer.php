@@ -3,7 +3,8 @@ App::uses('AppModel', 'Model');
 /**
  * Packer Model
  *
- * @property User $User
+ * @property Packinghouse $Packinghouse
+ * @property Request $Request
  */
 class Packer extends AppModel {
 
@@ -77,22 +78,52 @@ class Packer extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'fax' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**
- * belongsTo associations
+ * hasMany associations
  *
  * @var array
  */
-	public $belongsTo = array(
-		'User' => array(
-			'className' => 'User',
-			'foreignKey' => 'user_id',
+	public $hasMany = array(
+		'Packinghouse' => array(
+			'className' => 'Packinghouse',
+			'foreignKey' => 'packer_id',
+			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
-			'order' => ''
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Request' => array(
+			'className' => 'Request',
+			'foreignKey' => 'packer_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
 		)
 	);
+
 }

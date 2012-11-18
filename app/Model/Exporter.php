@@ -4,6 +4,8 @@ App::uses('AppModel', 'Model');
  * Exporter Model
  *
  * @property User $User
+ * @property Request $Request
+ * @property Sample $Sample
  */
 class Exporter extends AppModel {
 
@@ -15,11 +17,28 @@ class Exporter extends AppModel {
 	public $useTable = 'Exporters';
 
 /**
+ * Display field
+ *
+ * @var string
+ */
+	public $displayField = 'name';
+
+/**
  * Validation rules
  *
  * @var array
  */
 	public $validate = array(
+		'user_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 		'name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -30,37 +49,7 @@ class Exporter extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'phone' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
 		'address' => array(
-			'notempty' => array(
-				'rule' => array('notempty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'email' => array(
-			'email' => array(
-				'rule' => array('email'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'fileaddr' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -90,10 +79,9 @@ class Exporter extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'id_card' => array(
+		'phone' => array(
 			'notempty' => array(
-				'rule' => array('isFileUpload'),
-				'message' => 'File was missing from submission',
+				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -101,10 +89,9 @@ class Exporter extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'cert_corp' => array(
+		'fax' => array(
 			'notempty' => array(
-				'rule' => array('isFileUpload'),
-				'message' => 'File was missing from submission',
+				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -112,21 +99,9 @@ class Exporter extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'id_corp' => array(
-			'notempty' => array(
-				'rule' => array('isFileUpload'),
-				'message' => 'File was missing from submission',
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'app_letter' => array(
-			'notempty' => array(
-				'rule' => array('isFileUpload'),
-				'message' => 'File was missing from submission',
+		'email' => array(
+			'email' => array(
+				'rule' => array('email'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -177,4 +152,39 @@ class Exporter extends AppModel {
 			'order' => ''
 		)
 	);
+
+/**
+ * hasMany associations
+ *
+ * @var array
+ */
+	public $hasMany = array(
+		'Request' => array(
+			'className' => 'Request',
+			'foreignKey' => 'exporter_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Sample' => array(
+			'className' => 'Sample',
+			'foreignKey' => 'exporter_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);
+
 }

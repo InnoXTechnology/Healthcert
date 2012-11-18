@@ -1,18 +1,18 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Exportdetail Model
+ * Labstaff Model
  *
- * @property Attatchment $Attatchment
+ * @property User $User
  */
-class Exportdetail extends AppModel {
+class Labstaff extends AppModel {
 
 /**
  * Use table
  *
  * @var mixed False or table name
  */
-	public $useTable = 'Exportdetails';
+	public $useTable = 'Labstaffs';
 
 /**
  * Validation rules
@@ -20,7 +20,7 @@ class Exportdetail extends AppModel {
  * @var array
  */
 	public $validate = array(
-		'attatchment_id' => array(
+		'user_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -30,7 +30,7 @@ class Exportdetail extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'receiver' => array(
+		'firstname' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -40,7 +40,7 @@ class Exportdetail extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'receiver_addr' => array(
+		'lastname' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -50,17 +50,7 @@ class Exportdetail extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'ship_date' => array(
-			'date' => array(
-				'rule' => array('date'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'lot_no' => array(
+		'address' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -70,7 +60,7 @@ class Exportdetail extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'regis_no' => array(
+		'phone' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -80,9 +70,9 @@ class Exportdetail extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'weight' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
+		'email' => array(
+			'email' => array(
+				'rule' => array('email'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -100,9 +90,9 @@ class Exportdetail extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Attatchment' => array(
-			'className' => 'Attatchment',
-			'foreignKey' => 'attatchment_id',
+		'User' => array(
+			'className' => 'User',
+			'foreignKey' => 'user_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
