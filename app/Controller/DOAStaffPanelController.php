@@ -18,6 +18,9 @@ class DOAStaffPanelController extends AppController
 		else if($this->Auth->user('type') == 'T') {
 			$this->redirect(array('controller' => 'LabStaffPanel', 'action' => 'index'));
 		}
+
+		$first_name = $this->Auth->user('username');
+		$this->set(compact('first_name'));
 	}
 	
 	public function index()

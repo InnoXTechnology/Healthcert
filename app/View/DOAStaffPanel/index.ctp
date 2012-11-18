@@ -26,12 +26,12 @@
 							</ul>
 							<ul class="nav pull-right">
 								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">ณัฐกมล โตวนิชย์ <b class="caret"></b></a>
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= $first_name; ?><b class="caret"></b></a>
 									<ul class="dropdown-menu">
 										<li><a href="#">แก้ไขข้อมูลส่วนตัว</a></li>
 										<li><a href="#">แก้ไขบัญชีผู้ใช้</a></li>
 										<li class="divider"></li>
-										<li><a href="#">ลงชื่อออก</a></li>
+										<li><?= $this->Html->link('ลงชื่อออก', array('controller' => 'users', 'action' => 'logout')); ?></li>
 									</ul>
 								</li>
 							</ul>
