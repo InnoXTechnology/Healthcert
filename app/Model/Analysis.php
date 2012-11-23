@@ -1,19 +1,19 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Analysise Model
+ * Analysis Model
  *
  * @property Sample $Sample
  * @property Staff $Staff
  */
-class Analysise extends AppModel {
+class Analysis extends AppModel {
 
 /**
  * Use table
  *
  * @var mixed False or table name
  */
-	public $useTable = 'Analysises';
+	public $useTable = 'Analyses';
 
 /**
  * Validation rules
