@@ -5,7 +5,7 @@ App::uses('AppModel', 'Model');
  *
  * @property Exporter $Exporter
  * @property Request $Request
- * @property Analysise $Analysise
+ * @property Analysis $Analysis
  */
 class Sample extends AppModel {
 
@@ -62,6 +62,16 @@ class Sample extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'submit_date' => array(
+			'date' => array(
+				'rule' => array('date'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -94,8 +104,8 @@ class Sample extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'Analysise' => array(
-			'className' => 'Analysise',
+		'Analysis' => array(
+			'className' => 'Analysis',
 			'foreignKey' => 'sample_id',
 			'dependent' => false,
 			'conditions' => '',
