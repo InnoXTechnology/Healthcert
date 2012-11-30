@@ -22,7 +22,6 @@ class DOAStaffPanelController extends AppController
 			$this->redirect(array('controller' => 'LabStaffPanel', 'action' => 'index'));
 		}
 
-		$user = $this->Exporter->findByUserId($this->Auth->user('id'));
 		$first_name = $this->Auth->user('username');
 		$this->set(compact('first_name'));
 	}

@@ -22,8 +22,8 @@ class LabStaffPanelController extends AppController
 		else if($this->Auth->user('type') == 'H') {
 			$this->redirect(array('controller' => 'LabAdminPanel', 'action' => 'index'));
 		}
-		$user = $this->Exporter->findByUserId($this->Auth->user('id'));
-		$first_name = $user['Exporter']['name'];
+		
+		$first_name = $this->Auth->user('username');
 		$this->set(compact('first_name'));
 	}
 
