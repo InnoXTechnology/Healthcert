@@ -1,6 +1,6 @@
 <?php
 class LabAdminPanelController extends AppController {
-    public $uses = array('analyses', 'samples', 'testings');
+    public $uses = array('Analysis', 'Sample', 'Testing');
     public $components = array('RequestHandler');
 	
 	public function beforeFilter()
@@ -13,22 +13,22 @@ class LabAdminPanelController extends AppController {
 	}
 
     public function index() {
-        $analysiss = $this->analyses->find('all'); 
+    	
+        $analysiss = $this->Analysis->find('all'); 
        
 		$this->set('analyses', $analysiss);
-
        
     }
 
     public function click_pass($id = null) {
-    	$this->analyses->id = $id;
-		$this->analyses->saveField('status', 'อนุมัติ');
+    	$this->Analysis->id = $id;
+		$this->Analysis->saveField('status', 'อนุมัติ');
 		$this->redirect(array('action' => 'index'));
     }
 
     public function click_not_pass($id = null) {
-    	$this->analyses->id = $id;
-		$this->analyses->saveField('status', 'ไม่อนุมัติ');
+    	$this->Analysis->id = $id;
+		$this->Analysis->saveField('status', 'ไม่อนุมัติ');
 		$this->redirect(array('action' => 'index'));
     }
     

@@ -4,7 +4,7 @@ App::uses('AppModel', 'Model');
  * Analysis Model
  *
  * @property Sample $Sample
- * @property Staff $Staff
+ * @property User $User
  */
 class Analysis extends AppModel {
 
@@ -31,7 +31,7 @@ class Analysis extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'staff_id' => array(
+		'user_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -98,9 +98,9 @@ class Analysis extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		'Staff' => array(
-			'className' => 'Staff',
-			'foreignKey' => 'staff_id',
+		'User' => array(
+			'className' => 'User',
+			'foreignKey' => 'user_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
