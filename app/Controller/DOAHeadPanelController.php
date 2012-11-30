@@ -27,6 +27,22 @@ class DOAHeadPanelController extends AppController
 
 	public function index()
 	{
+		//Find
+	}
+
+	public function apply_status($id)
+	{
+		if (isset($id)) {
+			if ($this->request->is('post')) {
+				//Save
+			} else {
+				//Find
+			}
+		}
+		else {
+			$this->redirect(array('action' => 'index'));
+			$this->Session->setFlash('Access denied');
+		}
 		
 	}
 
