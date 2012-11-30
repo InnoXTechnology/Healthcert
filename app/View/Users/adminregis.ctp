@@ -1,8 +1,9 @@
 <?php
 $types = array(
 		'D' => 'DOA Staff',
+		'A' => 'DOA Header',
 		'H' => 'Lab Header',
-		'T' => 'Lab Tester',
+		'T' => 'Lab Tester'
 	);
 ?>
 <?php echo $this->Session->flash(); ?>

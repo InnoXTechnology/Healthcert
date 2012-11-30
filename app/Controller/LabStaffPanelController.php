@@ -8,6 +8,25 @@ class LabStaffPanelController extends AppController
 	
 	public $uses = array('Sample','Analysis');
 
+	public function beforeFilter()
+	{
+		if ($this->Auth->user('type') == 'E') {
+			$this->redirect(array('controller' => 'ExporterPanel', 'action' => 'index'));
+		}
+		else if($this->Auth->user('type') == 'D') {
+			$this->redirect(array('controller' => 'DOAStaffPanel', 'action' => 'index'));
+		}
+		else if($this->Auth->user('type') == 'A') {
+			$this->redirect(array('controller' => 'DOAHeadPanel', 'action' => 'index'));
+		}
+		else if($this->Auth->user('type') == 'H') {
+			$this->redirect(array('controller' => 'LabAdminPanel', 'action' => 'index'));
+		}
+		$user = $this->Exporter->findByUserId($this->Auth->user('id'));
+		$first_name = $user['Exporter']['name'];
+		$this->set(compact('first_name'));
+	}
+
 	public function index()
 	{
 		# code...

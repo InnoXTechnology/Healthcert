@@ -28,6 +28,9 @@ class UsersController extends AppController
 		else if($this->Auth->user('type') == 'D') {
 			$this->redirect(array('controller' => 'DOAStaffPanel', 'action' => 'index'));
 		}
+		else if($this->Auth->user('type') == 'A') {
+			$this->redirect(array('controller' => 'DOAHeadPanel', 'action' => 'index'));
+		}
 		else if($this->Auth->user('type') == 'H') {
 			$this->redirect(array('controller' => 'LabAdminPanel', 'action' => 'index'));
 		}

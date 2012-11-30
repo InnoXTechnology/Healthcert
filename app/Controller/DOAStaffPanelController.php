@@ -9,8 +9,11 @@ class DOAStaffPanelController extends AppController
 	
 	public function beforeFilter()
 	{
-		if ($this->Auth->user('type') == 'E') {
+		if($this->Auth->user('type') == 'E') {
 			$this->redirect(array('controller' => 'ExporterPanel', 'action' => 'index'));
+		}
+		else if($this->Auth->user('type') == 'A') {
+			$this->redirect(array('controller' => 'DOAHeadPanel', 'action' => 'index'));
 		}
 		else if($this->Auth->user('type') == 'H') {
 			$this->redirect(array('controller' => 'LabAdminPanel', 'action' => 'index'));
