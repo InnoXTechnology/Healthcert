@@ -8,7 +8,7 @@
 					</div>
 					<div class="span9">
 						<ul class="nav">
-							<li class="active"><?= $this->Html->link('หน้าหลัก', array('action' => 'index')); ?></li>
+							<li><?= $this->Html->link('หน้าหลัก', array('action' => 'index')); ?></li>
 							<li class="divider-vertical"></li>
 							<li class="dropdown">
 								<a href="#" class="active dropdown-toggle" data-toggle="dropdown">ยื่นคำขอ <b class="caret"></b></a>
@@ -20,7 +20,7 @@
 							</li>
 
 							<li class="divider-vertical"></li>
-							<li><?= $this->Html->link('ดูผลการตรวจสอบ', array('action' => 'labresult')); ?></li>
+							<li class="active"><?= $this->Html->link('ดูผลการตรวจสอบ', array('action' => 'labresult')); ?></li>
 							<li class="divider-vertical"></li>
 							
 							<li><?= $this->Html->link('คู่มือการใช้งาน', array('action' => 'manual')); ?></li>
