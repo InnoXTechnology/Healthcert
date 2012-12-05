@@ -11,13 +11,17 @@
 							<li class="divider-vertical"></li>
 							<li class="dropdown">
 								<a href="#" class="active dropdown-toggle" data-toggle="dropdown">ยื่นคำขอ <b class="caret"></b></a>
+
 								<ul class="dropdown-menu">
 									<li><?= $this->Html->link('ใบรับรองสุขอนามัย (พ.ก.11)', array('action' => 'requestApp')); ?></li>
-									<li><a href="#">แก้ไขใบแนบใบรับรองสุขอนามัย (พ.ก.12)</a></li>
+									<li><?= $this->Html->link('แก้ไขใบแนบใบรับรองสุขอนามัย (พ.ก.12)', array('action' => 'requestApp')); ?></li>
 								</ul>
 							</li>
 
 							<li class="divider-vertical"></li>
+							<li><?= $this->Html->link('ดูผลการตรวจสอบ', array('action' => 'labresult')); ?></li>
+							<li class="divider-vertical"></li>
+							
 							<li><?= $this->Html->link('คู่มือการใช้งาน', array('action' => 'manual')); ?></li>
 							<li class="divider-vertical"></li>
 						</ul>

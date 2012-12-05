@@ -1,5 +1,4 @@
 <div style="clear:both;"></div>
-
 <div class="navbar">
 	<div class="navbar-inner"  >
 		<div class="container" style="width:940px;">
@@ -45,4 +44,37 @@
 		</div>
 	</div>
 </div>
+
+
 <?php echo $this->Session->flash(); ?>
+<div class="container" style="margin-top:50px;">
+	<div class="containerMain" style="min-height:500px;">
+		<div class="side" style="margin-top:30px">
+			<legend1 style="color:#5BAF5B;">รายงานผลการทดลอง</legend1>
+
+
+			<table id="bgTable" border="1" cellspacing="1" cellpadding="6" width="780px" style="margin:auto;">
+				<tr align="center" style="background:rgba(110, 158, 48, 0.5); color:#3F3F3F;"><td >ใบคำขอที่</td><td >ผลการตรวจสอบที่</td><td>วันที่ทำการตรวจสอบ</td><td>หัวข้อการตรวจสอบ</td><td>ผลการตรวจสอบ</td><td width="120px">สถานะ</td></tr>
+				
+				
+
+				<?php foreach ($samples as $sample): ?>
+				
+				<?php $request_id = $sample['Request']['id']; ?>
+				<?php foreach ($sample['Analysis'] as $analysis): ?>
+				<tr align="center"><td><?php echo $request_id ?></td><td><?php echo $analysis['sample_id']; ?></td><td><?php echo $analysis['analysis_date']; ?></td><td><?php echo $analysis
+				['method']; ?></td><td><?php echo $analysis
+				['result']; ?></td><td><?php echo $analysis
+				['status']; ?></td></tr>
+			<?php endforeach; ?>
+			
+		<?php endforeach; ?>
+	</table>
+
+</div>
+
+
+
+
+</div>
+</div>

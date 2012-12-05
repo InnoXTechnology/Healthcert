@@ -4,7 +4,7 @@
 */
 class ExporterPanelController extends AppController
 {
-	public $uses = array('User','Exporter','Packer','Packinghouse','Request','Exportdetail','Attachment');
+	public $uses = array('Analysis','User','Exporter','Packer','Packinghouse','Request','Exportdetail','Attachment','Sample');
 	public $components = array('RequestHandler');
 	
 	public function beforeFilter()
@@ -55,92 +55,105 @@ class ExporterPanelController extends AppController
 					&& $this->Exportdetail->save($this->request->data)) {
 
 					$packingHouse = $data['Packinghouse'];
-					$lastPacker = $this->Packer->getLastInsertId();
-					$lastEd = $this->Exportdetail->getLastInsertId();
-					$packingHouse['packer_id'] = $lastPacker;
-					
-					if ($this->Packinghouse->save($packingHouse)) {
-						$request = $data['Request'];
-						$lastPH = $this->Packinghouse->getLastInsertId();
+				$lastPacker = $this->Packer->getLastInsertId();
+				$lastEd = $this->Exportdetail->getLastInsertId();
+				$packingHouse['packer_id'] = $lastPacker;
+				
+				if ($this->Packinghouse->save($packingHouse)) {
+					$request = $data['Request'];
+					$lastPH = $this->Packinghouse->getLastInsertId();
 
-						$request['exporter_id'] = $this->Auth->user('id');
-						$request['packer_id'] = $lastPacker;
-						$request['exportdetail_id'] = $lastEd;
-						$request['packingHouse_id'] = $lastPH;
-						$request['receipt_no'] = date('Y').' / '.$lastPH;
-						$request['receipt_date'] = date('Y-m-d H:i:s');
+					$request['exporter_id'] = $this->Auth->user('id');
+					$request['packer_id'] = $lastPacker;
+					$request['exportdetail_id'] = $lastEd;
+					$request['packingHouse_id'] = $lastPH;
+					$request['receipt_no'] = date('Y').' / '.$lastPH;
+					$request['receipt_date'] = date('Y-m-d H:i:s');
 
-						if ($this->Request->save($request)) {
-							$this->Session->setFlash('The request has been saved.');
-							$this->redirect(array('action' => 'index'));
-						}
+					if ($this->Request->save($request)) {
+						$this->Session->setFlash('The request has been saved.');
+						$this->redirect(array('action' => 'index'));
 					}
-					
-					else $this->Session->setFlash('The request could not be saved. Please try again.');
 				}
+				
 				else $this->Session->setFlash('The request could not be saved. Please try again.');
 			}
-			else $this->Session->setFlash('Please fill all fields.');
+			else $this->Session->setFlash('The request could not be saved. Please try again.');
 		}
+		else $this->Session->setFlash('Please fill all fields.');
 	}
+}
 
-	public function manual()
-	{
+public function manual()
+{
+	
+}
 
+
+public function view_report_pk11($id = null)
+{
+	if ($this->request->is('post')) {
+		$this->redirect(array('action' => 'index'));
 	}
-
-
-	public function view_report_pk11($id = null)
-	{
-		if ($this->request->is('post')) {
-			$this->redirect(array('action' => 'index'));
-		}
-		if (isset($id)) {
-			$data = $this->Request->findById($id);
-			if ($data['Request']['exporter_id'] === $this->Auth->user('id')) {
-				$this->request->data = $data;
+	if (isset($id)) {
+		$data = $this->Request->findById($id);
+		if ($data['Request']['exporter_id'] === $this->Auth->user('id')) {
+			$this->request->data = $data;
 				//debug($this->request->data);
-			} else {
-				$this->redirect(array('action' => 'index'));
-				$this->Session->setFlash('Access denied');
-			}
-
 		} else {
 			$this->redirect(array('action' => 'index'));
 			$this->Session->setFlash('Access denied');
 		}
+
+	} else {
+		$this->redirect(array('action' => 'index'));
+		$this->Session->setFlash('Access denied');
 	}
+}
 
-	public function delete_by_id($id = null)
-	{
-		if (isset($id)) {
-			$data = $this->Request->findById($id);
-			if ($data['Request']['exporter_id'] === $this->Auth->user('id')) {
+public function labresult() {
+	$samples = $this->Sample->findAllByExporterId($this->Auth->user('id'));
+	
+	$this->set('samples', $samples);
+	$testresults;
 
-				$result1 = $this->Packer->delete($data['Request']['packer_id']);
-				$result2 = $this->Packinghouse->delete($data['Request']['packingHouse_id']);
-				$result3 = $this->Exportdetail->delete($data['Request']['exportdetail_id']);
-				$result4 = $this->Request->delete($id);
-				
-				$pass = $result1 && $result2 && $result3 && $result4;
+	foreach ($samples as $samp) {
+		$testresults = $samp['Analysis'];
+	}
+	
+	
+}
 
-				if ($pass) {
-					$this->redirect(array('action' => 'index'));
-					$this->Session->setFlash('This requests was cancel.');
-				}
-				else {
-					$this->redirect(array('action' => 'index'));
-					$this->Session->setFlash('Cannot Delete Request. Plases contect Staff.');
-				}
-			} else {
+public function delete_by_id($id = null)
+{
+	if (isset($id)) {
+		$data = $this->Request->findById($id);
+		if ($data['Request']['exporter_id'] === $this->Auth->user('id')) {
+
+			$result1 = $this->Packer->delete($data['Request']['packer_id']);
+			$result2 = $this->Packinghouse->delete($data['Request']['packingHouse_id']);
+			$result3 = $this->Exportdetail->delete($data['Request']['exportdetail_id']);
+			$result4 = $this->Request->delete($id);
+			
+			$pass = $result1 && $result2 && $result3 && $result4;
+
+			if ($pass) {
 				$this->redirect(array('action' => 'index'));
-				$this->Session->setFlash('Access denied');
+				$this->Session->setFlash('This requests was cancel.');
+			}
+			else {
+				$this->redirect(array('action' => 'index'));
+				$this->Session->setFlash('Cannot Delete Request. Plases contect Staff.');
 			}
 		} else {
 			$this->redirect(array('action' => 'index'));
 			$this->Session->setFlash('Access denied');
 		}
+	} else {
+		$this->redirect(array('action' => 'index'));
+		$this->Session->setFlash('Access denied');
 	}
+}
 }
 
 ?>

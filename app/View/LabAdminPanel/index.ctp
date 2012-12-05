@@ -42,9 +42,9 @@
 
 
 					<table id="bgTable" border="1" cellspacing="1" cellpadding="6" width="780px" style="margin:auto;">
-						<tr align="center" style="background:rgba(110, 158, 48, 0.5); color:#3F3F3F;"><td >ใบคำขอที่</td><td >ผลการตรวจสอบที่</td><td>วันที่ทำการตรวจสอบ</td><td>หัวข้อการตรวจสอบ</td><td>ผลการตรวจสอบ</td><td>การกระทำ</td><td width="120px">สถานะ</td></tr>
+						<tr align="center" style="background:rgba(110, 158, 48, 0.5); color:#3F3F3F;"><td >ผลการตรวจสอบที่</td><td>วันที่ทำการตรวจสอบ</td><td>หัวข้อการตรวจสอบ</td><td>ผลการตรวจสอบ</td><td>การกระทำ</td><td width="120px">สถานะ</td></tr>
 						<?php foreach ($analyses as $analysis): ?>
-						<tr align="center"><td>งง</td><td><?php echo $analysis['analyses']['sample_id']; ?></td><td><?php echo $analysis['analyses']['analysis_date']; ?></td><td><?php echo $analysis['analyses']['method']; ?></td><td><?php echo $analysis['analyses']['result']; ?></td><td width="200px"><?= $this->Form->button(
+						<tr align="center"><td><?php echo $analysis['analyses']['sample_id']; ?></td><td><?php echo $analysis['analyses']['analysis_date']; ?></td><td><?php echo $analysis['analyses']['method']; ?></td><td><?php echo $analysis['analyses']['result']; ?></td><td width="200px"><?= $this->Form->button(
 							
 							'อนุมัติ'
 							, array('onclick' => "if(confirm('ต้องการอนุมัติ?'))
