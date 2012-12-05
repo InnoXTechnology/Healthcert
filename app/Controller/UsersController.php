@@ -51,6 +51,12 @@ class UsersController extends AppController
 				else if($this->Auth->user('type') == 'D') {
 					$this->redirect(array('controller' => 'DOAStaffPanel', 'action' => 'index'));
 				}
+				else if($this->Auth->user('type') == 'F') {
+					$this->redirect(array('controller' => 'DOAStaff2Panel', 'action' => 'index'));
+				}
+				else if($this->Auth->user('type') == 'A') {
+					$this->redirect(array('controller' => 'DOAHeadPanel', 'action' => 'index'));
+				}
 				else if($this->Auth->user('type') == 'H') {
 					$this->redirect(array('controller' => 'LabAdminPanel', 'action' => 'index'));
 				}
@@ -137,7 +143,7 @@ class UsersController extends AppController
 					$this->request->data['User']['repassword'] = '';
 					$this->Session->setFlash('The user could not be saved. Please try again.');
 				}
-			
+				
 			}
 		} else {
 			$this->Session->setFlash('Access denied');
