@@ -4,50 +4,29 @@
 */
 class DOAStaff2PanelController extends AppController
 {
-	public $uses = array('User','Exporter','Packer','PackingHouse','Request','Exportdetail','Attachment');
-	
-	public function beforeFilter()
-	{
-		if ($this->Auth->user('type') == 'E') {
-			$this->redirect(array('controller' => 'ExporterPanel', 'action' => 'index'));
-		}
-		else if($this->Auth->user('type') == 'D') {
-			$this->redirect(array('controller' => 'DOAStaffPanel', 'action' => 'index'));
-		}
-		else if($this->Auth->user('type') == 'A') {
-			$this->redirect(array('controller' => 'DOAHeadPanel', 'action' => 'index'));
-		}
-		else if($this->Auth->user('type') == 'H') {
-			$this->redirect(array('controller' => 'LabAdminPanel', 'action' => 'index'));
-		}
-		else if($this->Auth->user('type') == 'T') {
-			$this->redirect(array('controller' => 'LabStaffPanel', 'action' => 'index'));
-		}
+	public $uses = array('User','Exporter','Packer','PackingHouse','Request','Exportdetail','Attachment','Analysis');
+	public $components = array('RequestHandler');
 
-		$first_name = $this->Auth->user('username');
-		$this->set(compact('first_name'));
-	}
 
 	public function index()
 	{
-		//Find
+		$analyses = $this->Analysis->query("SELECT * FROM analyses WHERE status = 'NOT SEEN'");
+		//debug($analyses);
+		$this->set(compact('analyses'));
 	}
 
-	public function apply_status($id)
+	public function pass($id)
 	{
-		if (isset($id)) {
-			if ($this->request->is('post')) {
-				//Save
-			} else {
-				//Find
-			}
-		}
-		else {
-			$this->redirect(array('action' => 'index'));
-			$this->Session->setFlash('Access denied');
-		}
-		
+		$this->Analysis->id = $id;
+		$this->Analysis->saveField('status', 'ผ่าน');
+		$this->redirect(array('action' => 'index'));
 	}
 
+	public function not_pass($id)
+	{
+		$this->Analysis->id = $id;
+		$this->Analysis->saveField('status', 'ไม่ผ่าน');
+		$this->redirect(array('action' => 'index'));
+	}
 }
  ?>
