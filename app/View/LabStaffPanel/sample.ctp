@@ -20,7 +20,7 @@
 
 <div class="container" style="margin-top:95px;">
 	<div class="containerMain">
-		<div class="headTopic" style = "font-size: 30px;">ผลการวิเคราะห์ตัวอย่าง<br/></div>
+		<div class="headTopic" style = "font-size: 30px;">รับตัวอย่าง<br/></div>
 		<div class="side">
 	<table border="0" cellspacing="2" cellpadding="6" width="750px" style="margin-left:30px;">
 		<?php
