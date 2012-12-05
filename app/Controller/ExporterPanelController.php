@@ -171,6 +171,7 @@ public function edit_report_pk11($id = null)
 		if( isset($data['Request']['exportation_date'])){
 			$req1['exportation_date'] = $data['Request']['exportation_date'];
 		}
+		$req1['oldRequest_id'] = $data['Request']['id'];
 		$req1['exportdetail_id'] = $data['Exportdetail']['id'];
 		$req1['packer_id'] = $data['Packer']['id'];
 		$req1['packingHouse_id'] = $data['PackingHouse']['id'];
