@@ -39,7 +39,7 @@ class DOAHeadPanelController extends AppController
 	{
 		if (isset($id)) {
 			$request = $this->Request->findById($id);
-			//$analyses = $this->Analysis->findBySampleId($request['Sample']['id']);
+			$analyses = $this->Analysis->findAllBySampleId($request['Sample'][0]['id']);
 			$this->set(compact('request', 'analyses'));
 		}
 		else {

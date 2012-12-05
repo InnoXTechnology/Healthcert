@@ -31,7 +31,7 @@ class DOAStaff2PanelController extends AppController
 
 	public function index()
 	{
-		$analyses = $this->Analysis->query("SELECT * FROM analyses WHERE status = 'NOT SEEN'");
+		$analyses = $this->Analysis->query("SELECT * FROM analyses WHERE status = 'NOT SEEN' AND approve = 'ผ่าน'");
 		//debug($analyses);
 		$this->set(compact('analyses'));
 	}

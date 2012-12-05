@@ -11,6 +11,17 @@
 								<li class="active"><?= $this->Html->link('รับตัวอย่าง', array('action' => 'sample')); ?></li>
 								<li class="active"><?= $this->Html->link('ผลการวิเคราะห์', array('action' => 'result')); ?></li>
 							</ul>
+							<ul class="nav pull-right">
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?= $first_name; ?><b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="">แก้ไขข้อมูลส่วนตัว</a></li>
+									<li><a href="#">แก้ไขบัญชีผู้ใช้</a></li>
+									<li class="divider"></li>
+									<li><?= $this->Html->link('ลงชื่อออก', array('controller' => 'users', 'action' => 'logout')); ?></li>
+								</ul>
+							</li>
+						</ul>
 						</div>
 					</div>
 				</div>
@@ -55,7 +66,7 @@
 			<td colspan="3">
 				<?php echo $this->Form->input('result', array('type' => 'textarea', 'label' => false,'class'=>'span8')) ?>
 			</td>
-			<?php echo $this->Form->input('status', array('type' => 'hidden', 'value' => 'NOT PASS','label' => false,'class'=>'span8')) ?>
+			<?php echo $this->Form->input('status', array('type' => 'hidden', 'value' => 'NOT SEEN','label' => false,'class'=>'span8')) ?>
 		</tr>
 	</table>
 </div>
