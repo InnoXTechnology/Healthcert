@@ -119,7 +119,7 @@ public function view_edit_report_pk11($id = null)
 		$this->redirect(array('action' => 'index'));
 	}
 	if (isset($id)) {
-		$data = $this->Request->findById($id);
+		$data = $this->EditRequest->findById($id);
 		if ($data['EditRequest']['exporter_id'] === $this->Auth->user('id')) {
 			$this->request->data = $data;
 			//debug($this->request->data);
@@ -237,6 +237,36 @@ public function delete_by_id($id = null)
 			$result4 = $this->Request->delete($id);
 			
 			$pass = $result1 && $result2 && $result3 && $result4;
+
+			if ($pass) {
+				$this->redirect(array('action' => 'index'));
+				$this->Session->setFlash('This requests was cancel.');
+			}
+			else {
+				$this->redirect(array('action' => 'index'));
+				$this->Session->setFlash('Cannot Delete Request. Plases contect Staff.');
+			}
+		} else {
+			$this->redirect(array('action' => 'index'));
+			$this->Session->setFlash('Access denied');
+		}
+	} else {
+		$this->redirect(array('action' => 'index'));
+		$this->Session->setFlash('Access denied');
+	}
+}
+
+public function delete_edit_by_id($id = null)
+{
+	if (isset($id)) {
+		$data = $this->EditRequest->findById($id);
+		if ($data['EditRequest']['exporter_id'] === $this->Auth->user('id')) {
+
+			$result1 = $this->EditPacker->delete($data['EditRequest']['packer_id']);
+			$result3 = $this->EditExportdetail->delete($data['EditRequest']['exportdetail_id']);
+			$result4 = $this->EditRequest->delete($id);
+			
+			$pass = $result1 && $result3 && $result4;
 
 			if ($pass) {
 				$this->redirect(array('action' => 'index'));

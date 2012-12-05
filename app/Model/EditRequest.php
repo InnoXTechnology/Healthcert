@@ -217,39 +217,39 @@ class EditRequest extends AppModel {
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-/**
- * belongsTo associations
- *
- * @var array
- */
-	public $belongsTo = array(
-		'Exporter' => array(
-			'className' => 'Exporter',
-			'foreignKey' => 'exporter_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
-		'Exportdetail' => array(
-			'className' => 'Exportdetail',
-			'foreignKey' => 'exportdetail_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
-		'Packer' => array(
-			'className' => 'Packer',
-			'foreignKey' => 'packer_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
-		'PackingHouse' => array(
-			'className' => 'PackingHouse',
-			'foreignKey' => 'packingHouse_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		)
-	);
+	/**
+	 * belongsTo associations
+	 *
+	 * @var array
+	 */
+		public $belongsTo = array(
+			'Exporter' => array(
+				'className' => 'Exporter',
+				'foreignKey' => 'exporter_id',
+				'conditions' => '',
+				'fields' => '',
+				'order' => ''
+			),
+			'EditExportdetail' => array(
+				'className' => 'EditExportdetail',
+				'foreignKey' => 'exportdetail_id',
+				'conditions' => '',
+				'fields' => '',
+				'order' => ''
+			),
+			'EditPacker' => array(
+				'className' => 'EditPacker',
+				'foreignKey' => 'packer_id',
+				'conditions' => '',
+				'fields' => '',
+				'order' => ''
+			),
+			'PackingHouse' => array(
+				'className' => 'PackingHouse',
+				'foreignKey' => 'packingHouse_id',
+				'conditions' => '',
+				'fields' => '',
+				'order' => ''
+			)
+		);
 }

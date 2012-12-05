@@ -80,4 +80,25 @@ class EditExportdetail extends AppModel {
 			),
 		),
 	);
+	
+	/**
+	 * hasMany associations
+	 *
+	 * @var array
+	 */
+		public $hasMany = array(
+			'EditRequest' => array(
+				'className' => 'EditRequest',
+				'foreignKey' => 'exportdetail_id',
+				'dependent' => false,
+				'conditions' => '',
+				'fields' => '',
+				'order' => '',
+				'limit' => '',
+				'offset' => '',
+				'exclusive' => '',
+				'finderQuery' => '',
+				'counterQuery' => ''
+			)
+		);
 }

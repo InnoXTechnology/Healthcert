@@ -87,4 +87,40 @@ class EditPacker extends AppModel {
 			),
 		),
 	);
+	
+	/**
+	 * hasMany associations
+	 *
+	 * @var array
+	 */
+		public $hasMany = array(
+			'Packinghouse' => array(
+				'className' => 'Packinghouse',
+				'foreignKey' => 'packer_id',
+				'dependent' => false,
+				'conditions' => '',
+				'fields' => '',
+				'order' => '',
+				'limit' => '',
+				'offset' => '',
+				'exclusive' => '',
+				'finderQuery' => '',
+				'counterQuery' => ''
+			),
+			'EditRequest' => array(
+				'className' => 'EditRequest',
+				'foreignKey' => 'packer_id',
+				'dependent' => false,
+				'conditions' => '',
+				'fields' => '',
+				'order' => '',
+				'limit' => '',
+				'offset' => '',
+				'exclusive' => '',
+				'finderQuery' => '',
+				'counterQuery' => ''
+			)
+		);
+
+	
 }
