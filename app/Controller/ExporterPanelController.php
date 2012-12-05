@@ -30,7 +30,6 @@ class ExporterPanelController extends AppController
 	{
 		$requests = $this->Request->findAllByExporterId($this->Auth->user('id'));
 		$editrequests = $this->EditRequest->findAllByExporterId($this->Auth->user('id'));
-		//debug($requests);
 		$this->set(compact('requests'));
 		$this->set(compact('editrequests'));
 	}

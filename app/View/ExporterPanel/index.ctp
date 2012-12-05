@@ -60,10 +60,24 @@
 					<td><?= date_format($date, 'd F Y เวลา H:i น.'); ?></td><td><?= $request['Request']['status']; ?></td>
 					<td width="130px"><?= $this->Form->button('ดู', array('onclick' => "location.href='".$this->Html->url(array('action' => 'view_report_pk11',$request['Request']['id']))."'" ,'class' => 'btn', 'style' => 'width:50px;')); ?>&nbsp;<?= $this->Form->button('ลบ', array('onclick' => "if(confirm('Are you sure to delete?'))
 						location.href='".$this->Html->url(array('action' => 'delete_by_id',$request['Request']['id']))."'" ,'class' => 'btn btn-danger', 'style' => 'width:50px;')); ?>&nbsp;
+						<?php $disable = false; ?>
+						<?php foreach ($editrequests as $ed_request): ?>
 
+							<?php if($request['Request']['id'] == $ed_request['EditRequest']['oldRequest_id']): ?>
+							<?php $disable = true; ?> 
+							<?php endif; ?>
 
-						<?= $this->Form->button('ยื่นคำขอแก้ไข', array('onclick' => "location.href='".$this->Html->url(array('action' => 'edit_report_pk11',$request['Request']['id']))."'" ,'class' => 'btn btn-info', 'style' => 'width:110px; margin-top:5px;')); ?></td>
+						<?php endforeach; ?>
 
+						<?php if ($disable): ?>
+
+							<?= $this->Form->button('ยื่นคำขอแก้ไข', array('onclick' => "location.href='".$this->Html->url(array('action' => 'edit_report_pk11',$request['Request']['id']))."'" ,'class' => 'btn btn-info', 'style' => 'width:110px; margin-top:5px;', 'disabled' => 'disabled')); ?></td>
+
+						<?php else: ?>
+
+							<?= $this->Form->button('ยื่นคำขอแก้ไข', array('onclick' => "location.href='".$this->Html->url(array('action' => 'edit_report_pk11',$request['Request']['id']))."'" ,'class' => 'btn btn-info', 'style' => 'width:110px; margin-top:5px;')); ?></td>
+
+						<?php endif; ?>
 				</tr>
 			<?php endforeach; ?>
 			</table>

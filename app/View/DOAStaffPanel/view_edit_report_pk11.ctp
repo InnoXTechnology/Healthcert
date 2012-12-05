@@ -202,21 +202,21 @@
 	
 	<div class="side">
 		
-			<legend1 style="color:#5BAF5B;">พาหนะ</legend1>
+			<legend1 style="color:#5BAF5B;">สถานะ</legend1>
 		
 			<table border="0" cellspacing="2" cellpadding="6" width="750px" style="margin-left:30px;">
-			    <tr><td width="200px">ส่งโดยพาหนะ<br/><div class="engDescription">Means of Conveyance</div></td><td colspan="5">
+			    <tr><td width="200px">สถานะ<br/><div class="engDescription">Status</div></td><td colspan="5">
 			    	<?= $this->Form->input('EditRequest.status', array('class' => 'span3', 'id' => 'packerProvince' , 'options' => $status, 'div' => false, 'label' => false));?>
 			    </td></tr>
 			
 			</table>
 		
 			<div style="height:20px; padding:10px;">
-	   		 	<? echo $this->Form->input('EditRequest.id', array('type' => 'hidden')); ?>
-	   			 <? echo $this->Form->input('EditPacker.id', array('type' => 'hidden')); ?>
-	   			 <? echo $this->Form->input('Exporter.id', array('type' => 'hidden')); ?>
-	   		 	<? echo $this->Form->input('PackingHouse.id', array('type' => 'hidden')); ?>
-	   			 <? echo $this->Form->input('EditExportdetail.id', array('type' => 'hidden')); ?>
+	   		 	<?php echo $this->Form->input('EditRequest.id', array('type' => 'hidden')); ?>
+	   			 <?php echo $this->Form->input('EditPacker.id', array('type' => 'hidden')); ?>
+	   			 <?php echo $this->Form->input('Exporter.id', array('type' => 'hidden')); ?>
+	   		 	<?php echo $this->Form->input('PackingHouse.id', array('type' => 'hidden')); ?>
+	   			 <?php echo $this->Form->input('EditExportdetail.id', array('type' => 'hidden')); ?>
 				<?= $this->Form->submit('บันทึก', array('class' => 'btn btn-success', 'style' => 'float:right; margin-left:10px;')); ?>
 			
 			</div>
