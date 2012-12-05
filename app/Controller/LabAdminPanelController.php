@@ -14,9 +14,9 @@ class LabAdminPanelController extends AppController {
 
     public function index() {
     	
-        $analysiss = $this->Analysis->find('all'); 
+        $analyses = $this->Analysis->query("SELECT * FROM analyses");
        
-		$this->set('analyses', $analysiss);
+		$this->set('analyses', $analyses);
        
     }
 
