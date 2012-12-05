@@ -59,7 +59,11 @@
 					<?php $date = date_create($request['Request']['receipt_date']); ?>
 					<td><?= date_format($date, 'd F Y เวลา H:i น.'); ?></td><td><?= $request['Request']['status']; ?></td>
 					<td width="130px"><?= $this->Form->button('ดู', array('onclick' => "location.href='".$this->Html->url(array('action' => 'view_report_pk11',$request['Request']['id']))."'" ,'class' => 'btn', 'style' => 'width:50px;')); ?>&nbsp;<?= $this->Form->button('ลบ', array('onclick' => "if(confirm('Are you sure to delete?'))
-						location.href='".$this->Html->url(array('action' => 'delete_by_id',$request['Request']['id']))."'" ,'class' => 'btn btn-danger', 'style' => 'width:50px;')); ?>&nbsp;<?= $this->Form->button('ยื่นคำขอแก้ไข', array('onclick' => "location.href='".$this->Html->url(array('action' => 'edit_report_pk11',$request['Request']['id']))."'" ,'class' => 'btn btn-info', 'style' => 'width:110px; margin-top:5px;')); ?></td>
+						location.href='".$this->Html->url(array('action' => 'delete_by_id',$request['Request']['id']))."'" ,'class' => 'btn btn-danger', 'style' => 'width:50px;')); ?>&nbsp;
+
+
+						<?= $this->Form->button('ยื่นคำขอแก้ไข', array('onclick' => "location.href='".$this->Html->url(array('action' => 'edit_report_pk11',$request['Request']['id']))."'" ,'class' => 'btn btn-info', 'style' => 'width:110px; margin-top:5px;')); ?></td>
+
 				</tr>
 			<?php endforeach; ?>
 			</table>

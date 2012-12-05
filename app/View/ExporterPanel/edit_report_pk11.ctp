@@ -187,11 +187,11 @@
 		</table>
 		
 		<div style="height:20px; padding:10px;">
-   		 	<? echo $this->Form->input('Request.id', array('type' => 'hidden')); ?>
-   			 <? echo $this->Form->input('Packer.id', array('type' => 'hidden')); ?>
-   			 <? echo $this->Form->input('Exporter.id', array('type' => 'hidden')); ?>
-   		 	<? echo $this->Form->input('PackingHouse.id', array('type' => 'hidden')); ?>
-   			 <? echo $this->Form->input('Exportdetail.id', array('type' => 'hidden')); ?>
+   		 	<?php echo $this->Form->input('Request.id', array('type' => 'hidden')); ?>
+   			 <?php echo $this->Form->input('Packer.id', array('type' => 'hidden')); ?>
+   			 <?php echo $this->Form->input('Exporter.id', array('type' => 'hidden')); ?>
+   		 	<?php echo $this->Form->input('PackingHouse.id', array('type' => 'hidden')); ?>
+   			 <?php echo $this->Form->input('Exportdetail.id', array('type' => 'hidden')); ?>
 			<?= $this->Form->submit('บันทึก', array('class' => 'btn btn-success', 'style' => 'float:right; margin-left:10px;')); ?>
 			<?= $this->Form->end(); ?>
 			
