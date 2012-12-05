@@ -37,12 +37,37 @@
 		<div class="side" style="margin-top:30px">
 			<legend1 style="color:#5BAF5B;">รายงานผลการตรวจแลป</legend1>
 			<table id="bgTable" border="1" cellspacing="1" cellpadding="6" width="700px" style="margin:auto;">
-				<tr align="center" style="background:rgba(110, 158, 48, 0.5); color:#3F3F3F;"><td>วันที่ขอ</td><td>สถานะ</td><td>การกระทำ</td></tr>
+				<tr align="center" style="background:rgba(110, 158, 48, 0.5); color:#3F3F3F;">
+					<td>คำขอที่</td>
+					<td>ผู้ประกอบการ</td>
+					<td>วันที่ขอ</td>
+					<td>รายละเอียดผู้ขอ</td>
+					<td>ผลการตรวจแลป</td>
+					<td>การกระทำ</td>
+				</tr>
 				<?php foreach ($requests as $request): ?>
-				<tr align="center" style="color:#3F3F3F"><td><?= $request['Request']['receipt_no']; ?></td>
-					<?php $date = date_create($request['Request']['receipt_date']); ?><td><?= $request['Request']['status']; ?></td>
-					<td width="130px"><?= $this->Form->button('ดู', array('onclick' => "location.href='".$this->Html->url(array('action' => 'view_report_pk11',$request['Request']['id']))."'" ,'class' => 'btn', 'style' => 'width:50px;')); ?>&nbsp;<?= $this->Form->button('ลบ', array('onclick' => "if(confirm('Are you sure to delete?'))
-					location.href='".$this->Html->url(array('action' => 'delete_by_id',$request['Request']['id']))."'" ,'class' => 'btn btn-danger', 'style' => 'width:50px;')); ?></td></tr>
+				<tr align="center" style="color:#3F3F3F">
+					<td><?= $request['Request']['receipt_no']; ?></td>
+					<td><?= $request['Exporter']['name']; ?></td>
+					<?php $date = date_create($request['Request']['receipt_date']); ?>
+					<td><?= date_format($date, 'd F Y เวลา H:i น.'); ?></td>
+
+					<td>
+						<?= $this->Form->button('ดู', array('onclick' => "location.href='".$this->Html->url(array('action' => 'view_report_pk11',$request['Request']['id']))."'" ,'class' => 'btn btn-info', 'style' => 'width:50px;')); ?>
+					</td>
+
+					<td>
+						<?= $this->Form->button('ดู', array('onclick' => "location.href='".$this->Html->url(array('action' => 'view_lab_report',$request['Request']['id']))."'" ,'class' => 'btn btn-info', 'style' => 'width:50px;')); ?>
+					</td>
+
+					<td width="140px">
+						<?= $this->Form->button('ผ่าน', array('onclick' => "if(confirm('Are you sure to confirm?')) location.href='".$this->Html->url(array('action' => 'apply_status',$request['Request']['id'],'pass'))."'" ,'class' => 'btn btn-success')); ?>
+						&nbsp;
+						<?= $this->Form->button('ไม่ผ่าน', array('onclick' => "if(confirm('Are you sure to confirm?')) location.href='".$this->Html->url(array('action' => 'apply_status',$request['Request']['id'],'fail'))."'" ,'class' => 'btn btn-danger', 'style' => 'width:70px;')); ?>
+					</td>
+
+
+				</tr>
 				<?php endforeach; ?>
 			</table>
 			<br/>

@@ -4,7 +4,7 @@
 */
 class DOAHeadPanelController extends AppController
 {
-	public $uses = array('User','Exporter','Packer','PackingHouse','Request','Exportdetail','Attachment');
+	public $uses = array('User','Exporter','Packer','PackingHouse','Request','Exportdetail','Attachment','Analysis', 'Sample');
 	
 	public function beforeFilter()
 	{
@@ -31,16 +31,16 @@ class DOAHeadPanelController extends AppController
 	public function index()
 	{
 		//Find
+		$requests = $this->Request->findAllByStatusAndStatusFinal('อนุมัติ','');
+		$this->set(compact('requests'));
 	}
 
-	public function apply_status($id)
+	public function view_lab_report($id)
 	{
 		if (isset($id)) {
-			if ($this->request->is('post')) {
-				//Save
-			} else {
-				//Find
-			}
+			$request = $this->Request->findById($id);
+			//$analyses = $this->Analysis->findBySampleId($request['Sample']['id']);
+			$this->set(compact('request', 'analyses'));
 		}
 		else {
 			$this->redirect(array('action' => 'index'));
@@ -49,5 +49,43 @@ class DOAHeadPanelController extends AppController
 		
 	}
 
+	public function view_report_pk11($id = null)
+	{
+		if ($this->request->is('post')) {
+			$this->redirect(array('action' => 'index'));
+		}
+		if (isset($id)) {
+			$data = $this->Request->findById($id);
+			$this->request->data = $data;
+
+		} else {
+			$this->redirect(array('action' => 'index'));
+			$this->Session->setFlash('Access denied');
+		}
+	}
+
+	public function apply_status($id = null, $status = null) {
+		if (isset($id) && isset($status)) {
+			$data = $this->Request->findById($id);
+			if ($status == 'pass') {
+				$stat = 'อนุมัติ';
+			} else if ($status == 'fail') {
+				$stat = 'ไม่อนุมัติ';
+			} else {
+				$this->redirect(array('action' => 'index'));
+				$this->Session->setFlash('Access denied');
+				return;
+			}
+			$this->Request->query("UPDATE Requests
+				SET status_final='".$stat."'
+				WHERE Requests.id=".$data['Request']['id']);
+			$this->Session->setFlash('Operation success');
+			$this->redirect(array('action' => 'index'));
+		} else {
+			$this->redirect(array('action' => 'index'));
+			$this->Session->setFlash('Access denied');
+		}
+	}
+
 }
- ?>
+?>

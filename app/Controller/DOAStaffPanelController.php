@@ -30,17 +30,14 @@ class DOAStaffPanelController extends AppController
 	{
 		$requests = $this->Request->find('all');
 		$editrequests = $this->EditRequest->find('all');
-		//debug($requests);
 		$this->set(compact('requests'));
 		$this->set(compact('editrequests'));
-		//debug($editrequests);
 	}
 	
 	public function view_pk11()
 	{
 		$requests = $this->Request->find('all');
 		
-		//debug($requests);
 		$this->set(compact('requests'));
 		
 	}
