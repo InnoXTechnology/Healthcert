@@ -49,7 +49,7 @@
 							'อนุมัติ'
 							, array('onclick' => "if(confirm('ต้องการอนุมัติ?'))
 								location.href='".$this->Html->url(array('action' => 'click_pass',$analysis['analyses']['id']))."'" ,'class' => 'btn', 'style' => 'width:90px;')); ?><?= $this->Form->button('ไม่อนุมัติ', array('onclick' => "if(confirm('ยกเลิกการอนุมัติ?'))
-								location.href='".$this->Html->url(array('action' => 'click_not_pass',$analysis['analyses']['id']))."'" ,'class' => 'btn btn-danger', 'style' => 'width:90px;')); ?></td><td><?php echo $analysis['analyses']['status']; ?></td></tr>
+								location.href='".$this->Html->url(array('action' => 'click_not_pass',$analysis['analyses']['id']))."'" ,'class' => 'btn btn-danger', 'style' => 'width:90px;')); ?></td><td><?php echo $analysis['analyses']['approve']; ?></td></tr>
 							<?php endforeach; ?>
 						</table>
 

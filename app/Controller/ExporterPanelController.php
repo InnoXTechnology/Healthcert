@@ -244,7 +244,7 @@ public function delete_by_id($id = null)
 			}
 			else {
 				$this->redirect(array('action' => 'index'));
-				$this->Session->setFlash('Cannot Delete Request. Plases contect Staff.');
+				$this->Session->setFlash('Cannot Delete Request. Plases contact Staff.');
 			}
 		} else {
 			$this->redirect(array('action' => 'index'));
