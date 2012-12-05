@@ -91,6 +91,13 @@ public function manual()
 	
 }
 
+public function view_pk11()
+{
+	$requests = $this->Request->find('all');
+	$this->set(compact('requests'));
+		
+}
+
 
 public function view_report_pk11($id = null)
 {

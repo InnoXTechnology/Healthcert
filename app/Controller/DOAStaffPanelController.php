@@ -4,7 +4,7 @@
 */
 class DOAStaffPanelController extends AppController
 {
-	public $uses = array('User','Exporter','Packer','PackingHouse','Request','Exportdetail','Attachment');
+	public $uses = array('User','Exporter','Packer','PackingHouse','Request','Exportdetail','Attachment','EditRequest','EditPacker','EditExportdetail');
 	public $components = array('RequestHandler');
 	
 	public function beforeFilter()
@@ -29,15 +29,27 @@ class DOAStaffPanelController extends AppController
 	public function index()
 	{
 		$requests = $this->Request->find('all');
+		$editrequests = $this->EditRequest->find('all');
 		//debug($requests);
 		$this->set(compact('requests'));
+		$this->set(compact('editrequests'));
+		//debug($editrequests);
 	}
 	
 	public function view_pk11()
 	{
 		$requests = $this->Request->find('all');
+		
 		//debug($requests);
 		$this->set(compact('requests'));
+		
+	}
+	
+	public function view_edit_pk11()
+	{
+		$editrequests = $this->EditRequest->find('all');
+		$this->set(compact('editrequests'));
+		
 	}
 	
 	public function view_report_pk11($id = null)
@@ -53,6 +65,28 @@ class DOAStaffPanelController extends AppController
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$data = $this->Request->findById($id);
+				
+				$this->request->data = $data;
+				//debug($this->request->data);
+			}
+
+		} else {
+			$this->redirect(array('action' => 'index'));
+			$this->Session->setFlash('Access denied');
+		}
+	}
+	
+	public function view_edit_report_pk11($id = null)
+	{
+		
+		if (isset($id)) {
+			if ($this->request->is('post')) {
+				$this->EditRequest->save($this->request->data);
+				$this->EditPacker->save($this->request->data);
+				$this->EditExportdetail->save($this->request->data);
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$data = $this->EditRequest->findById($id);
 				
 				$this->request->data = $data;
 				//debug($this->request->data);
@@ -87,11 +121,30 @@ class DOAStaffPanelController extends AppController
 		}
 				
 	}
-
-	public function requestApp()
+	
+	public function delete_edit_by_id($id = null)
 	{
 		
+		if (isset($id)) {
+			$data = $this->EditRequest->findById($id);
+			
+			$result1 = $this->EditPacker->delete($data['EditRequest']['packer_id']);
+			$result3 = $this->EditExportdetail->delete($data['EditRequest']['exportdetail_id']);
+			$result4 = $this->EditRequest->delete($id);
+				
+			$pass = $result1 && $result3 && $result4;
+
+			if ($pass) {
+				$this->redirect(array('action' => 'index'));
+				$this->Session->setFlash('This requests was cancel.');
+			}
+			else {
+				$this->redirect(array('action' => 'index'));
+				$this->Session->setFlash('Cannot Delete Request.');
+			}
+		}
 	}
+
 
 	public function manual()
 	{

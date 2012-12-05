@@ -100,7 +100,7 @@ $arr_province = array(
 
 									<ul class="dropdown-menu">
 										<li><?= $this->Html->link('ใบรับรองสุขอนามัย (พ.ก.11)', array('action' => 'requestApp')); ?></li>
-										<li><?= $this->Html->link('แก้ไขใบแนบใบรับรองสุขอนามัย (พ.ก.12)', array('action' => 'requestApp')); ?></li>
+										<li><?= $this->Html->link('แก้ไขใบแนบใบรับรองสุขอนามัย (พ.ก.12)', array('action' => 'view_pk11')); ?></li>
 									</ul>
 								</li>
 

@@ -99,7 +99,7 @@
 									<a href="#" class="active dropdown-toggle" data-toggle="dropdown">ยื่นคำขอ <b class="caret"></b></a>
 									<ul class="dropdown-menu">
 										<li><?= $this->Html->link('ใบรับรองสุขอนามัย (พ.ก.11)', array('action' => 'requestApp')); ?></li>
-										<li><a href="#">แก้ไขใบแนบใบรับรองสุขอนามัย (พ.ก.12)</a></li>
+										<li><?= $this->Html->link('แก้ไขใบแนบใบรับรองสุขอนามัย (พ.ก.12)', array('action' => 'view_pk11')); ?></li>
 									</ul>
 								</li>
 								
