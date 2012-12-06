@@ -77,7 +77,7 @@ class DATABASE_CONFIG {
 		'login' => AF_DB_USER,
 		'password' => AF_DB_PASS,
 		'database' => AF_DB_NAME,
-		'prefix' => 'HC_',
+		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
 

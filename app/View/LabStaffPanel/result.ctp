@@ -7,8 +7,7 @@
 						</div>
 						<div class="span9">
 							<ul class="nav">
-								<li class="active"><?= $this->Html->link('หน้าหลัก', array('action' => 'index')); ?></li>
-								<li class="active"><?= $this->Html->link('รับตัวอย่าง', array('action' => 'sample')); ?></li>
+								<li><?= $this->Html->link('รับตัวอย่าง', array('action' => 'sample')); ?></li>
 								<li class="active"><?= $this->Html->link('ผลการวิเคราะห์', array('action' => 'result')); ?></li>
 							</ul>
 							<ul class="nav pull-right">

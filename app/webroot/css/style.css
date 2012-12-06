@@ -389,10 +389,14 @@ p.error em {
 	color:#808085;
 }
 
-#ExportdetailShipDateMonth {
+#ExportdetailShipDateMonth, 
+#SampleSubmitDateMonth, 
+#AnalysisAnalysisDateMonth {
 	width: 110px;
 }
 
-#ExportdetailShipDateYear {
+#ExportdetailShipDateYear, 
+#SampleSubmitDateYear, 
+#AnalysisAnalysisDateYear {
 	width: 70px;
 }

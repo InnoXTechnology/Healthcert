@@ -38,7 +38,7 @@ class UsersController extends AppController
 			$this->redirect(array('controller' => 'LabAdminPanel', 'action' => 'index'));
 		}
 		else if($this->Auth->user('type') == 'T') {
-			$this->redirect(array('controller' => 'LabStaffPanel', 'action' => 'index'));
+			$this->redirect(array('controller' => 'LabStaffPanel', 'action' => 'sample'));
 		}
 
 		if ($this->request->is('post'))
@@ -61,7 +61,7 @@ class UsersController extends AppController
 					$this->redirect(array('controller' => 'LabAdminPanel', 'action' => 'index'));
 				}
 				else if($this->Auth->user('type') == 'T') {
-					$this->redirect(array('controller' => 'LabStaffPanel', 'action' => 'index'));
+					$this->redirect(array('controller' => 'LabStaffPanel', 'action' => 'sample'));
 				}
 			}
 			else

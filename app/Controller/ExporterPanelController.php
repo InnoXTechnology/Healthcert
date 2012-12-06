@@ -19,7 +19,7 @@ class ExporterPanelController extends AppController
 			$this->redirect(array('controller' => 'LabAdminPanel', 'action' => 'index'));
 		}
 		else if($this->Auth->user('type') == 'T') {
-			$this->redirect(array('controller' => 'LabStaffPanel', 'action' => 'index'));
+			$this->redirect(array('controller' => 'LabStaffPanel', 'action' => 'sample'));
 		}
 		$user = $this->Exporter->findByUserId($this->Auth->user('id'));
 		$first_name = $user['Exporter']['name'];
@@ -30,8 +30,7 @@ class ExporterPanelController extends AppController
 	{
 		$requests = $this->Request->findAllByExporterId($this->Auth->user('id'));
 		$editrequests = $this->EditRequest->findAllByExporterId($this->Auth->user('id'));
-		$this->set(compact('requests'));
-		$this->set(compact('editrequests'));
+		$this->set(compact('requests', 'editrequests'));
 	}
 
 	public function requestApp()
@@ -85,15 +84,11 @@ class ExporterPanelController extends AppController
 	}
 }
 
-public function manual()
-{
-	
-}
-
 public function view_pk11()
 {
-	$requests = $this->Request->find('all');
-	$this->set(compact('requests'));
+	$requests = $this->Request->findAllByExporterId($this->Auth->user('id'));
+	$editrequests = $this->EditRequest->findAllByExporterId($this->Auth->user('id'));
+	$this->set(compact('requests', 'editrequests'));
 		
 }
 

@@ -5,8 +5,21 @@ class LabAdminPanelController extends AppController {
 	
 	public function beforeFilter()
 	{
-		
-
+		if ($this->Auth->user('type') == 'E') {
+			$this->redirect(array('controller' => 'ExporterPanel', 'action' => 'index'));
+		}
+		else if($this->Auth->user('type') == 'D') {
+			$this->redirect(array('controller' => 'DOAStaffPanel', 'action' => 'index'));
+		}
+		else if($this->Auth->user('type') == 'A') {
+			$this->redirect(array('controller' => 'DOAHeadPanel', 'action' => 'index'));
+		}
+		else if($this->Auth->user('type') == 'H') {
+			$this->redirect(array('controller' => 'LabAdminPanel', 'action' => 'index'));
+		}
+		else if($this->Auth->user('type') == 'T') {
+			$this->redirect(array('controller' => 'LabStaffPanel', 'action' => 'sample'));
+		}
 		
 		$first_name = $this->Auth->user('username');
 		$this->set(compact('first_name'));
@@ -14,7 +27,7 @@ class LabAdminPanelController extends AppController {
 
     public function index() {
     	
-        $analyses = $this->Analysis->query("SELECT * FROM analyses");
+        $analyses = $this->Analysis->find('all');
        
 		$this->set('analyses', $analyses);
        

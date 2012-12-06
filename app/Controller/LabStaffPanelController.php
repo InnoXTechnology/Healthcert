@@ -30,6 +30,7 @@ class LabStaffPanelController extends AppController
 	public function index()
 	{
 		# code...
+		$this->redirect(array('action' => 'sample'));
 	}
 
 	public function result(){

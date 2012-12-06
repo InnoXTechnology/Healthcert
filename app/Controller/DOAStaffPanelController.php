@@ -19,7 +19,7 @@ class DOAStaffPanelController extends AppController
 			$this->redirect(array('controller' => 'LabAdminPanel', 'action' => 'index'));
 		}
 		else if($this->Auth->user('type') == 'T') {
-			$this->redirect(array('controller' => 'LabStaffPanel', 'action' => 'index'));
+			$this->redirect(array('controller' => 'LabStaffPanel', 'action' => 'sample'));
 		}
 
 		$first_name = $this->Auth->user('username');
@@ -142,10 +142,5 @@ class DOAStaffPanelController extends AppController
 		}
 	}
 
-
-	public function manual()
-	{
-
-	}
 }
 ?>

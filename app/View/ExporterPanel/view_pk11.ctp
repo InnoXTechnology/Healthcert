@@ -22,8 +22,6 @@
 							<li><?= $this->Html->link('ดูผลการตรวจสอบ', array('action' => 'labresult')); ?></li>
 							<li class="divider-vertical"></li>
 							
-							<li><?= $this->Html->link('คู่มือการใช้งาน', array('action' => 'manual')); ?></li>
-							<li class="divider-vertical"></li>
 						</ul>
 						<ul class="nav pull-right">
 							<li class="dropdown">
@@ -58,7 +56,30 @@
 				<tr align="center" style="color:#3F3F3F"><td><?= $request['Request']['receipt_no']; ?></td>
 					<?php $date = date_create($request['Request']['receipt_date']); ?>
 					<td><?= date_format($date, 'd F Y เวลา H:i น.'); ?></td><td><?= $request['Request']['status']; ?></td>
-					<td width="130px"><?= $this->Form->button('ยื่นคำขอแก้ไข', array('onclick' => "location.href='".$this->Html->url(array('action' => 'edit_report_pk11',$request['Request']['id']))."'" ,'class' => 'btn btn-info', 'style' => 'width:110px; margin-top:5px;')); ?></td>
+
+					<td width="130px">
+
+						<?php $disable = false; ?>
+						<?php foreach ($editrequests as $ed_request): ?>
+
+							<?php if($request['Request']['id'] == $ed_request['EditRequest']['oldRequest_id']): ?>
+							<?php $disable = true; ?> 
+							<?php endif; ?>
+
+						<?php endforeach; ?>
+
+						<?php if ($disable): ?>
+
+						<?= $this->Form->button('ยื่นคำขอแก้ไข', array('onclick' => "location.href='".$this->Html->url(array('action' => 'edit_report_pk11',$request['Request']['id']))."'" ,'class' => 'btn btn-info', 'style' => 'width:110px; margin-top:5px;'
+							, 'disabled' => 'disabled')); ?>
+
+						<?php else: ?>
+
+						<?= $this->Form->button('ยื่นคำขอแก้ไข', array('onclick' => "location.href='".$this->Html->url(array('action' => 'edit_report_pk11',$request['Request']['id']))."'" ,'class' => 'btn btn-info', 'style' => 'width:110px; margin-top:5px;')); ?>
+
+						<?php endif; ?>
+						
+					</td>
 				</tr>
 			<?php endforeach; ?>
 			</table>

@@ -45,6 +45,7 @@
 					<td>ผลการตรวจแลป</td>
 					<td>การกระทำ</td>
 				</tr>
+				
 				<?php foreach ($requests as $request): ?>
 				<tr align="center" style="color:#3F3F3F">
 					<td><?= $request['Request']['receipt_no']; ?></td>

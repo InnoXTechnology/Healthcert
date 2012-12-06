@@ -22,8 +22,6 @@
 							<li><?= $this->Html->link('ดูผลการตรวจสอบ', array('action' => 'labresult')); ?></li>
 							<li class="divider-vertical"></li>
 							
-							<li><?= $this->Html->link('คู่มือการใช้งาน', array('action' => 'manual')); ?></li>
-							<li class="divider-vertical"></li>
 						</ul>
 						<ul class="nav pull-right">
 							<li class="dropdown">
