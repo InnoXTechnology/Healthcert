@@ -4,16 +4,8 @@ App::uses('AppModel', 'Model');
  * User Model
  *
  * @property Exporter $Exporter
- * @property Labstaff $Labstaff
  */
 class User extends AppModel {
-
-/**
- * Use table
- *
- * @var mixed False or table name
- */
-	public $useTable = 'Users';
 
 /**
  * Validation rules
@@ -53,19 +45,6 @@ class User extends AppModel {
 	public $hasMany = array(
 		'Exporter' => array(
 			'className' => 'Exporter',
-			'foreignKey' => 'user_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
-		'Labstaff' => array(
-			'className' => 'Labstaff',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
 			'conditions' => '',

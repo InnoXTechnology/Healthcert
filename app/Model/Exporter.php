@@ -10,20 +10,6 @@ App::uses('AppModel', 'Model');
 class Exporter extends AppModel {
 
 /**
- * Use table
- *
- * @var mixed False or table name
- */
-	public $useTable = 'Exporters';
-
-/**
- * Display field
- *
- * @var string
- */
-	public $displayField = 'name';
-
-/**
  * Validation rules
  *
  * @var array

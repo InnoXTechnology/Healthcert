@@ -76,9 +76,9 @@ class DOAHeadPanelController extends AppController
 				$this->Session->setFlash('Access denied');
 				return;
 			}
-			$this->Request->query("UPDATE Requests
+			$this->Request->query("UPDATE requests
 				SET status_final='".$stat."'
-				WHERE Requests.id=".$data['Request']['id']);
+				WHERE requests.id=".$data['Request']['id']);
 			$this->Session->setFlash('Operation success');
 			$this->redirect(array('action' => 'index'));
 		} else {

@@ -14,13 +14,6 @@ App::uses('AppModel', 'Model');
 class Request extends AppModel {
 
 /**
- * Use table
- *
- * @var mixed False or table name
- */
-	public $useTable = 'Requests';
-
-/**
  * Validation rules
  *
  * @var array

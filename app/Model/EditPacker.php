@@ -7,13 +7,6 @@ App::uses('AppModel', 'Model');
 class EditPacker extends AppModel {
 
 /**
- * Use table
- *
- * @var mixed False or table name
- */
-	public $useTable = 'Edit_Packers';
-
-/**
  * Display field
  *
  * @var string

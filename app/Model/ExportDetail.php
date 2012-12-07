@@ -7,12 +7,6 @@ App::uses('AppModel', 'Model');
  */
 class Exportdetail extends AppModel {
 
-/**
- * Use table
- *
- * @var mixed False or table name
- */
-	public $useTable = 'Exportdetails';
 
 /**
  * Validation rules

@@ -9,13 +9,6 @@ App::uses('AppModel', 'Model');
 class Packer extends AppModel {
 
 /**
- * Use table
- *
- * @var mixed False or table name
- */
-	public $useTable = 'Packers';
-
-/**
  * Display field
  *
  * @var string

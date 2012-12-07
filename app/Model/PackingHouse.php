@@ -8,13 +8,6 @@ App::uses('AppModel', 'Model');
 class Packinghouse extends AppModel {
 
 /**
- * Use table
- *
- * @var mixed False or table name
- */
-	public $useTable = 'Packinghouses';
-
-/**
  * Validation rules
  *
  * @var array

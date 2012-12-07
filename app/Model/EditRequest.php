@@ -11,13 +11,6 @@ App::uses('AppModel', 'Model');
 class EditRequest extends AppModel {
 
 /**
- * Use table
- *
- * @var mixed False or table name
- */
-	public $useTable = 'Edit_Requests';
-
-/**
  * Validation rules
  *
  * @var array
