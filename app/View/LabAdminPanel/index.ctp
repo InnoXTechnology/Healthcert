@@ -44,12 +44,12 @@
 					<table id="bgTable" border="1" cellspacing="1" cellpadding="6" width="780px" style="margin:auto;">
 						<tr align="center" style="background:rgba(110, 158, 48, 0.5); color:#3F3F3F;"><td >ผลการตรวจสอบที่</td><td>วันที่ทำการตรวจสอบ</td><td>หัวข้อการตรวจสอบ</td><td>ผลการตรวจสอบ</td><td>การกระทำ</td><td width="120px">สถานะ</td></tr>
 						<?php foreach ($analyses as $analysis): ?>
-						<tr align="center"><td><?php echo $analysis['Analyses']['sample_id']; ?></td><td><?php echo $analysis['Analyses']['analysis_date']; ?></td><td><?php echo $analysis['Analyses']['method']; ?></td><td><?php echo $analysis['Analyses']['result']; ?></td><td width="200px"><?= $this->Form->button(
+						<tr align="center"><td><?php echo $analysis['analyses']['sample_id']; ?></td><td><?php echo $analysis['analyses']['analysis_date']; ?></td><td><?php echo $analysis['analyses']['method']; ?></td><td><?php echo $analysis['analyses']['result']; ?></td><td width="200px"><?= $this->Form->button(
 							
 							'อนุมัติ'
 							, array('onclick' => "if(confirm('ต้องการอนุมัติ?'))
-								location.href='".$this->Html->url(array('action' => 'click_pass',$analysis['Analyses']['id']))."'" ,'class' => 'btn', 'style' => 'width:90px;')); ?><?= $this->Form->button('ไม่อนุมัติ', array('onclick' => "if(confirm('ยกเลิกการอนุมัติ?'))
-								location.href='".$this->Html->url(array('action' => 'click_not_pass',$analysis['Analyses']['id']))."'" ,'class' => 'btn btn-danger', 'style' => 'width:90px;')); ?></td><td><?php echo $analysis['Analyses']['approve']; ?></td></tr>
+								location.href='".$this->Html->url(array('action' => 'click_pass',$analysis['analyses']['id']))."'" ,'class' => 'btn', 'style' => 'width:90px;')); ?><?= $this->Form->button('ไม่อนุมัติ', array('onclick' => "if(confirm('ยกเลิกการอนุมัติ?'))
+								location.href='".$this->Html->url(array('action' => 'click_not_pass',$analysis['analyses']['id']))."'" ,'class' => 'btn btn-danger', 'style' => 'width:90px;')); ?></td><td><?php echo $analysis['analyses']['approve']; ?></td></tr>
 							<?php endforeach; ?>
 						</table>
 

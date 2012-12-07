@@ -14,9 +14,6 @@ class LabAdminPanelController extends AppController {
 		else if($this->Auth->user('type') == 'A') {
 			$this->redirect(array('controller' => 'DOAHeadPanel', 'action' => 'index'));
 		}
-		else if($this->Auth->user('type') == 'H') {
-			$this->redirect(array('controller' => 'LabAdminPanel', 'action' => 'index'));
-		}
 		else if($this->Auth->user('type') == 'T') {
 			$this->redirect(array('controller' => 'LabStaffPanel', 'action' => 'sample'));
 		}
@@ -27,8 +24,7 @@ class LabAdminPanelController extends AppController {
 
     public function index() {
     	
-        $analyses = $this->Analysis->find('all');
-       
+        $analyses = $this->Analysis->query("SELECT * FROM analyses where approve = ''");
 		$this->set('analyses', $analyses);
        
     }
